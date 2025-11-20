@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+/* Application de la police Inter globalement */
+body {
+  font-family: 'Helvetica', sans-serif;
+}

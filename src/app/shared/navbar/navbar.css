@@ -1,0 +1,6 @@
+/* pour avoir notre police Optima et la taille de police réduite */
+.bg-black {
+  font-family: 'Optima', monospace;
+  font-size: 14px; 
+}
+

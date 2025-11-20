@@ -2,14 +2,19 @@ import { Component, OnInit, signal } from '@angular/core';
 import { Box } from './Models/iboxes';
 import { Sushi } from './Services/sushi';
 import { CommonModule } from '@angular/common';
+import { Navbar } from "./shared/navbar/navbar";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    Navbar,
+    RouterOutlet
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App implements OnInit{
   protected readonly title = signal('sushi_crousty');
@@ -32,11 +37,11 @@ export class App implements OnInit{
         console.log("Première box:", donnee[0]);
         if (donnee[0]) { // Vérifie si au moins une box existe dans le tableau
           console.log("Structure de la première box:", {
-            name: donnee[0].name,        // Nom de la box
-            price: donnee[0].price,      // Prix de la box
-            pieces: donnee[0].pieces,     // Nombre de pièces
-            foods: donnee[0].foods,       // Tableau des aliments
-            flavors: donnee[0].flavors   // Tableau des saveurs
+            name: donnee[0].name,        // nom de la box
+            price: donnee[0].price,      // prix de la box
+            pieces: donnee[0].pieces,     // nombre de pièces
+            foods: donnee[0].foods,       // tableau des aliments
+            flavors: donnee[0].flavors   // tableau des saveurs
           });
         }
         this.boxes = donnee; // Assigne les données reçues à la propriété boxes

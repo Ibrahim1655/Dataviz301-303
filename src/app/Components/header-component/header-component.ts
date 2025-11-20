@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  urlImageSushi : string = "https://sushitaro.fr/wp-content/uploads/2025/04/quel-est-le-meilleur-restaurant-de-sushi-en-France.png"
+
 }
