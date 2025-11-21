@@ -1,4 +1,8 @@
-<div class="w-full">
-    <img [src]="urlImageSushi" alt="image de sushi" class="brightness-20 w-full h-4/12">
-
+<div class="w-full relative">
+    <img [src]="urlImageSushi" alt="image de sushi" class="brightness-20 w-full h-[800px] object-cover">
+    <div class="absolute inset-0 flex flex-col items-center justify-center -translate-y-16">
+        <h1 [ngClass]="titleClasses">Sushi Crousty</h1>
+        <p class="font-['Cormorant_Garamond'] text-white text-xl font-thin opacity-80 -translate-y-10 text-center">Table de cuisine japonaise raffinée</p>
+        <app-buttons></app-buttons>
+    </div>
 </div>
