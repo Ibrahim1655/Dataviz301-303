@@ -1,0 +1,37 @@
+<router-outlet/>
+
+
+<section class="grid grid-cols-3 gap-6 m-5">
+@for (box of boxes; track box) {
+  <div class="border border-gray-300 p-4 m-4">
+    <div>
+      <h3>{{box.name || 'Sans nom'}}</h3>
+      <p>Prix: {{box.price != null ? box.price : 'N/A'}}€</p>
+      <p>Pieces: {{box.pieces}}</p>
+
+      @if (box.foods && box.foods.length > 0) {
+        <div>
+          <p><strong>Aliments:</strong></p>
+          <ul>
+            @for (aliment of box.foods; track aliment) {
+              <li>
+                {{aliment.name}} ({{aliment.quantity}})
+              </li>
+            }
+          </ul>
+        </div>
+      } @else {
+        <div>
+          <p>Aliments: Aucun aliment</p>
+        </div>
+      }
+
+      @if (box.flavors && box.flavors.length > 0) {
+        <div>
+          <p><strong>Saveurs:</strong> {{box.flavors.join(', ')}}</p>
+        </div>
+      }
+    </div>
+  </div>
+}
+</section>

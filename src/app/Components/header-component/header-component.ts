@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Buttons } from '../../shared/buttons/buttons';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header-component',
-  imports: [Buttons, CommonModule], 
+  imports: [Buttons, CommonModule, RouterLink], 
   templateUrl: './header-component.html',
   styleUrl: './header-component.css',
 })
