@@ -1,37 +1,45 @@
 <router-outlet/>
 
+<div class="px-4 py-6">
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    @for (box of boxes; track box) {
+      <div class="bg-white border border-gray-300 rounded-md p-5">
+        <h3 class="text-xl font-semibold mb-3">
+          {{box.name || 'Sans nom'}}
+        </h3>
+        
+        <p class="text-lg font-bold text-gray-900 mb-2">
+          {{box.price != null ? box.price : ' Prix non disponible'}}€
+        </p>
+        
+        <p class="text-sm text-gray-600 mb-4">
+          {{box.pieces}} pièces
+        </p>
 
-<section class="grid grid-cols-3 gap-6 m-5">
-@for (box of boxes; track box) {
-  <div class="border border-gray-300 p-4 m-4">
-    <div>
-      <h3>{{box.name || 'Sans nom'}}</h3>
-      <p>Prix: {{box.price != null ? box.price : 'N/A'}}€</p>
-      <p>Pieces: {{box.pieces}}</p>
+        @if (box.foods && box.foods.length > 0) {
+          <div class="mt-4 pt-4 border-t border-gray-200">
+            <p class="font-medium text-sm mb-2">Aliments:</p>
+            <ul class="text-sm text-gray-700 space-y-1">
+              @for (aliment of box.foods; track aliment) {
+                <li>
+                  {{aliment.name}} ({{aliment.quantity}})
+                </li>
+              }
+            </ul>
+          </div>
+        } @else {
+          <div class="mt-4 pt-4 border-t border-gray-200">
+            <p class="text-sm text-gray-500">Aliments: Aucun aliment</p>
+          </div>
+        }
 
-      @if (box.foods && box.foods.length > 0) {
-        <div>
-          <p><strong>Aliments:</strong></p>
-          <ul>
-            @for (aliment of box.foods; track aliment) {
-              <li>
-                {{aliment.name}} ({{aliment.quantity}})
-              </li>
-            }
-          </ul>
-        </div>
-      } @else {
-        <div>
-          <p>Aliments: Aucun aliment</p>
-        </div>
-      }
-
-      @if (box.flavors && box.flavors.length > 0) {
-        <div>
-          <p><strong>Saveurs:</strong> {{box.flavors.join(', ')}}</p>
-        </div>
-      }
-    </div>
-  </div>
-}
-</section>
+        @if (box.flavors && box.flavors.length > 0) {
+          <div class="mt-4 pt-4 border-t border-gray-200">
+            <p class="font-medium text-sm mb-2">Saveurs:</p>
+            <p class="text-sm text-gray-700">{{box.flavors.join(', ')}}</p>
+          </div>
+        }
+      </div>
+    }
+  </section>
+</div>
