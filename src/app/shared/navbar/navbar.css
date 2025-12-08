@@ -3,4 +3,7 @@
   font-family: 'Optima', monospace;
   font-size: 14px; 
 }
+a:link {
+  color: blue;
+}
 

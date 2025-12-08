@@ -1,10 +1,41 @@
 <div class=" bg-black flex  justify-between p-6 sticky top-0 z-50 " >
     <div class="left-navbar ml-8">
-        <ul class="flex flex-row gap-x-10 text-white ">
-            <li><a routerLink="Menu"> MENU</a></li>
-            <li>A PROPOS</li>
-            <li>CONTACT</li>
-            <li>PANIER</li>
+        <ul class="flex flex-row gap-x-10">
+            <li>
+                <a routerLink="/Menu" 
+                   [routerLinkActive]="'text-red-500 font-bold'"
+                   [routerLinkActiveOptions]="{exact: false}"
+                   class="text-white hover:text-red-300 transition-colors">
+                   MENU
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/About" 
+                   [routerLinkActive]="'text-red-500 font-bold'"
+                   [routerLinkActiveOptions]="{exact: true}"
+                   class="text-white hover:text-red-300 transition-colors">
+                   A PROPOS
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/Contact" 
+                   [routerLinkActive]="'text-red-500 font-bold'"
+                   [routerLinkActiveOptions]="{exact: true}"
+                   class="text-white hover:text-red-300 transition-colors">
+                   CONTACT
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/Panier" 
+                   [routerLinkActive]="'text-red-500 font-bold'"
+                   [routerLinkActiveOptions]="{exact: true}"
+                   class="text-white hover:text-red-300 transition-colors">
+                   PANIER
+                </a>
+            </li>
             
         </ul>
 
