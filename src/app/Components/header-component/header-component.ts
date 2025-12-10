@@ -11,7 +11,9 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
 
-  urlImageSushi : string = "https://sushitaro.fr/wp-content/uploads/2025/04/quel-est-le-meilleur-restaurant-de-sushi-en-France.png"
+  urlImageSushi : string = "https://sushitaro.fr/wp-content/uploads/2025/04/quel-est-le-meilleur-restaurant-de-sushi-en-France.png";
+  urlImage2 : string = "https://fr.pinterest.com/pin/8725793024104760/";
+  urlImage3 : string = "https://fr.pinterest.com/pin/365776801007096147/";
   commandeButton : string = "Commander"
   
   // Classes pour le titre avec ngClass
