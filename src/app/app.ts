@@ -9,7 +9,6 @@ import { Navbar } from "./shared/navbar/navbar";
   standalone: true,
   imports: [
     RouterOutlet,
-   
     Navbar
 ],
   templateUrl: './app.html',

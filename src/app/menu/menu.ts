@@ -5,6 +5,8 @@ import { Box } from '../Models/iboxes';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../Components/header-component/header-component';
 import { Navbar } from '../shared/navbar/navbar';
+//pour pouvoir accès au icônes de Lucide Angular
+import { LucideAngularModule } from "lucide-angular";
 
 
 @Component({
@@ -30,6 +32,7 @@ ngOnInit(): void {
     });
 
 }
+
 
 
 }
