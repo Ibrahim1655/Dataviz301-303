@@ -1,3 +1,311 @@
-.bg-black {
-    background-color: black;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* Landing Page Container */
+.landing-page {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* ========================
+   Section: L'Harmonie des Saveurs
+   ======================== */
+.section-harmonie {
+    background-color: #1a1a1a;
+    padding: 4rem 2rem;
+}
+
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.text-block {
+    padding-right: 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #e74c3c;
+    margin: 0 0 1.5rem 0;
+    font-weight: 400;
+}
+
+.section-text {
+    font-size: 1rem;
+    color: #aaaaaa;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.section-text strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 0.875rem 1.75rem;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: #ffffff;
+    color: #0a0a0a;
+}
+
+.image-block {
+    position: relative;
+}
+
+.section-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ========================
+   Section: Fraîcheur Absolue
+   ======================== */
+.section-fraicheur {
+    position: relative;
+    display: flex;
+    height: 350px;
+    background-color: #0a0a0a;
+    overflow: hidden;
+}
+
+/* Image - côté gauche avec dégradé */
+.fraicheur-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+}
+
+.fraicheur-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dégradé sur l'image - fondu vers noir */
+.fraicheur-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background: linear-gradient(to right,
+            rgba(10, 10, 10, 0) 0%,
+            rgba(10, 10, 10, 0.7) 50%,
+            rgba(10, 10, 10, 1) 100%);
+    pointer-events: none;
+}
+
+/* Contenu texte - positionné à droite sur le fond noir */
+.fraicheur-content {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 420px;
+    z-index: 2;
+}
+
+.fraicheur-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.25rem 0;
+    letter-spacing: 0.5px;
+}
+
+.fraicheur-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #e67e22;
+    margin: 0 0 1.5rem 0;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.fraicheur-text {
+    font-size: 0.9rem;
+    color: #777777;
+    line-height: 1.7;
+    margin: 0;
+    text-align: center;
+}
+
+/* Texte vertical - bord droit */
+.fraicheur-vertical {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.fraicheur-vertical span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #555555;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+/* ========================
+   Section: Réservation
+   ======================== */
+.section-reservation {
+    position: relative;
+    background-color: #0a0a0a;
+    padding: 0;
+}
+
+.reservation-image-container {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.reservation-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.reservation-cta {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-outline-center {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-outline-center:hover {
+    background: #ffffff;
+    color: #0a0a0a;
+}
+
+.diamond-icon {
+    position: absolute;
+    bottom: 2rem;
+    right: 3rem;
+    width: 40px;
+    height: 40px;
+    color: #888888;
+    opacity: 0.5;
+}
+
+.diamond-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================
+   Responsive Design
+   ======================== */
+@media (max-width: 968px) {
+    .section-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .text-block {
+        padding-right: 0;
+        order: 2;
+    }
+
+    .image-block {
+        order: 1;
+    }
+
+    .section-fraicheur-bg {
+        width: 100%;
+        height: 50%;
+    }
+
+    .section-fraicheur-content {
+        background: linear-gradient(to bottom, transparent 30%, #1a1a1a 50%);
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 3rem;
+    }
+
+    .fraicheur-text {
+        margin-right: 0;
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .vertical-text {
+        display: none;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-harmonie {
+        padding: 2rem 1rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .section-image {
+        height: 280px;
+    }
+
+    .reservation-image-container {
+        height: 300px;
+    }
 }

@@ -1,5 +1,67 @@
-<div class=bg-black>
+<div class="landing-page">
+    <!-- Header avec navigation -->
     <app-header-component />
 
+    <!-- Section 1: L'Harmonie des Saveurs -->
+    <section class="section-harmonie">
+        <div class="section-content">
+            <div class="text-block">
+                <h2 class="section-title">L'Harmonie des Saveurs</h2>
+                <p class="section-subtitle">maki & sashimi</p>
+                <p class="section-text">
+                    Un équilibre de poisson frais, et leur pour carnivore bien portoaenjo frais, le riz, et des sushins
+                    doivent hoest des
+                    ingrédients. Les goûts simples : traveer : travailler soi
+                    masalier <strong>avec soin, le respecter</strong>, et laisster <strong>ses saveurs</strong>
+                    parier d'elles-mêmes.
+                </p>
+                <a routerLink="/Menu" class="btn-outline">Voir le Menu Complet</a>
+            </div>
+            <div class="image-block">
+                <img src="gourmet-mix.jpg" alt="Assortiment de sushi" class="section-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Fraîcheur Absolue -->
+    <section class="section-fraicheur">
+        <!-- Image à gauche -->
+        <div class="fraicheur-image">
+            <img src="sushi_landing.jpg" alt="Saumon frais et légumes">
+        </div>
+
+        <!-- Contenu texte à droite -->
+        <div class="fraicheur-content">
+            <h2 class="fraicheur-title">Fraîcheur Absolue</h2>
+            <p class="fraicheur-subtitle">ingrédients premium</p>
+            <p class="fraicheur-text">
+                Chaque plat est préparé avec des ingrédients choisis avec
+                soin. Le restaurant privilégie les arrivages du jour : du
+                poisson frais et des produits simples, mais de qualité,
+                pour chaque bouchée ait au goût.
+            </p>
+        </div>
+
+        <!-- Texte vertical à droite -->
+        <div class="fraicheur-vertical">
+            <span>Qualité Sans Compromis</span>
+        </div>
+    </section>
+
+    <!-- Section 3: Réservation -->
+    <section class="section-reservation">
+        <div class="reservation-image-container">
+            <img src="california-dream.jpg" alt="Sushi roll" class="reservation-image">
+        </div>
+        <div class="reservation-cta">
+            <a routerLink="/Contact" class="btn-outline-center">Réserver Votre Expérience</a>
+        </div>
+        <div class="diamond-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <polygon points="12,2 22,12 12,22 2,12" />
+            </svg>
+        </div>
+    </section>
 </div>
+
 <router-outlet />
