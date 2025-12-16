@@ -7,6 +7,7 @@ import { HeaderComponent } from '../Components/header-component/header-component
 import { Navbar } from '../shared/navbar/navbar';
 //pour pouvoir accès au icônes de Lucide Angular
 import { LucideAngularModule } from "lucide-angular";
+import { PanierService } from '../panier-service';
 
 
 @Component({
@@ -19,6 +20,7 @@ import { LucideAngularModule } from "lucide-angular";
 export class Menu implements OnInit {
 
   private menuSushi = inject(Sushi)
+  private panierService = inject(PanierService)
 
   boxes: Box[] = []
 
@@ -49,8 +51,15 @@ export class Menu implements OnInit {
       }));
     });
 
+   
+
+  }
+
+  ajouter(box: Box){
+    this.panierService.ajouter(box);
+    console.log(box + "ajouté au panier")
   }
 
 
 
-}
+} 
