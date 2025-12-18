@@ -1,52 +1,123 @@
-<div class=" bg-black flex  justify-between p-6 sticky top-0 z-50 " >
+<div class=" bg-black flex  justify-between p-6 sticky top-0 z-50 ">
     <div class="left-navbar ml-8">
         <ul class="flex flex-row gap-x-10">
             <li>
-                <a routerLink="/Menu" 
-                   [routerLinkActive]="'text-red-500 font-bold'"
-                   [routerLinkActiveOptions]="{exact: false}"
-                   class="text-white hover:text-red-300 transition-colors">
-                   MENU
+                <a routerLink="/Menu" [routerLinkActive]="'text-red-500 font-bold'"
+                    [routerLinkActiveOptions]="{exact: false}" class="text-white hover:text-red-300 transition-colors">
+                    MENU
                 </a>
             </li>
 
             <li>
-                <a routerLink="/About" 
-                   [routerLinkActive]="'text-red-500 font-bold'"
-                   [routerLinkActiveOptions]="{exact: true}"
-                   class="text-white hover:text-red-300 transition-colors">
-                   A PROPOS
+                <a routerLink="/About" [routerLinkActive]="'text-red-500 font-bold'"
+                    [routerLinkActiveOptions]="{exact: true}" class="text-white hover:text-red-300 transition-colors">
+                    A PROPOS
                 </a>
             </li>
 
             <li>
-                <a routerLink="/Contact" 
-                   [routerLinkActive]="'text-red-500 font-bold'"
-                   [routerLinkActiveOptions]="{exact: true}"
-                   class="text-white hover:text-red-300 transition-colors">
-                   CONTACT
+                <a routerLink="/Contact" [routerLinkActive]="'text-red-500 font-bold'"
+                    [routerLinkActiveOptions]="{exact: true}" class="text-white hover:text-red-300 transition-colors">
+                    CONTACT
                 </a>
             </li>
 
             <li>
-                <a routerLink="/Panier" 
-                   [routerLinkActive]="'text-red-500 font-bold'"
-                   [routerLinkActiveOptions]="{exact: true}"
-                   class="text-white hover:text-red-300 transition-colors">
-                   PANIER
+                <a routerLink="/Panier" [routerLinkActive]="'text-red-500 font-bold'"
+                    [routerLinkActiveOptions]="{exact: true}" class="text-white hover:text-red-300 transition-colors">
+                    PANIER
                 </a>
             </li>
-            
+
         </ul>
 
     </div>
-        <h2 class="mr-70" [ngClass]="titleClasses" routerLink="">Sushi Crousty</h2>
-    <div class="right-navbar">
-        <ul class="flex flex-row gap-x-4 text-red-500">
-            <li><img  [src]="iconUserUrl" alt="icone "></li>
-            <img src="/drapeau_france.jpg" class="w-5 h-5 rounded -sm " alt="drapeau francais">      
+    <h2 class="mr-70" [ngClass]="titleClasses" routerLink="">Sushi Crousty</h2>
+    <div class="right-navbar relative">
+        <ul class="flex flex-row gap-x-4 text-red-500 items-center">
+            <li class="relative">
+                <img [src]="iconUserUrl" alt="icone utilisateur"
+                    class="cursor-pointer hover:opacity-80 transition-opacity" (click)="toggleUserPopup()">
+
+                <!-- Menu Dropdown (petit popup) -->
+                <div *ngIf="showUserPopup && popupView === 'menu'"
+                    class="absolute right-0 top-10 bg-gradient-to-br from-gray-900 to-black border border-red-500/30 rounded-xl shadow-2xl p-5 min-w-[280px] z-50 backdrop-blur-sm">
+                    <div class="flex flex-col gap-3">
+                        <h3 class="text-white text-center font-semibold text-lg mb-2 border-b border-red-500/20 pb-2">
+                            Mon Compte</h3>
+                        <button (click)="showLogin()"
+                            class="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-red-500/25 hover:scale-105">
+                            Se connecter
+                        </button>
+                        <button (click)="showRegister()"
+                            class="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 hover:scale-105">
+                            S'inscrire
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <img src="/drapeau_france.jpg" class="w-5 h-5 rounded-sm" alt="drapeau francais">
         </ul>
+    </div>
+</div>
 
+<!-- Modal Overlay pour Login/Register -->
+<div *ngIf="showUserPopup && popupView !== 'menu'"
+    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center"
+    (click)="toggleUserPopup()">
 
+    <!-- Modal Content -->
+    <div class="bg-gradient-to-br from-gray-900 to-black border border-red-500/30 rounded-2xl shadow-2xl p-8 w-[90%] max-w-[450px] transform animate-pulse"
+        (click)="$event.stopPropagation()">
+
+        <!-- Login View -->
+        <div *ngIf="popupView === 'login'" class="flex flex-col gap-4">
+            <div class="flex items-center justify-between border-b border-red-500/20 pb-3 mb-2">
+                <button (click)="backToMenu()"
+                    class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1">
+                    <span>←</span> Retour
+                </button>
+                <button (click)="showRegister()"
+                    class="text-red-400 hover:text-red-300 transition-colors text-sm font-medium">
+                    S'inscrire →
+                </button>
+            </div>
+            <h3 class="text-white text-center font-bold text-2xl mb-4">Connexion</h3>
+            <input type="email" placeholder="Email"
+                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
+            <input type="password" placeholder="Mot de passe"
+                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
+            <button
+                class="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-red-500/25 hover:scale-105 mt-4 text-lg">
+                Se connecter
+            </button>
+        </div>
+
+        <!-- Register View -->
+        <div *ngIf="popupView === 'register'" class="flex flex-col gap-4">
+            <div class="flex items-center justify-between border-b border-red-500/20 pb-3 mb-2">
+                <button (click)="backToMenu()"
+                    class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1">
+                    <span>←</span> Retour
+                </button>
+                <button (click)="showLogin()"
+                    class="text-red-400 hover:text-red-300 transition-colors text-sm font-medium">
+                    Se connecter →
+                </button>
+            </div>
+            <h3 class="text-white text-center font-bold text-2xl mb-4">Inscription</h3>
+            <input type="text" placeholder="Nom complet"
+                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
+            <input type="email" placeholder="Email"
+                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
+            <input type="password" placeholder="Mot de passe"
+                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
+            <input type="password" placeholder="Confirmer le mot de passe"
+                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
+            <button
+                class="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-red-500/25 hover:scale-105 mt-4 text-lg">
+                S'inscrire
+            </button>
+        </div>
     </div>
 </div>
