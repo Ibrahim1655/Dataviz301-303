@@ -1,0 +1,113 @@
+<div class="product-detail-container">
+    @if (loading) {
+    <div class="loading">
+        <div class="loader"></div>
+        <p>Chargement...</p>
+    </div>
+    } @else if (box) {
+    <div class="product-content">
+        <!-- Bouton retour -->
+        <a routerLink="/Menu" class="back-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Retour au menu
+        </a>
+
+        <div class="product-layout">
+            <!-- Image du produit -->
+            <div class="product-image-section">
+                <div class="image-container">
+                    <img [src]="box.image" alt="{{ box.name }}" class="product-image">
+                </div>
+            </div>
+
+            <!-- Détails du produit -->
+            <div class="product-info-section">
+                <h1 class="product-title">{{ box.name }}</h1>
+
+                <div class="product-meta">
+                    <span class="pieces-count">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                        </svg>
+                        {{ box.pieces }} pièces
+                    </span>
+                </div>
+
+                <div class="product-price-container">
+                    <span class="product-price">{{ box.price }}€</span>
+                </div>
+
+                <!-- Saveurs -->
+                @if (box.flavors && box.flavors.length > 0) {
+                <div class="product-section">
+                    <h3 class="section-title">Saveurs</h3>
+                    <p class="flavors-text">{{ box.flavors.join(', ') }}</p>
+                </div>
+                }
+
+                <!-- Ingrédients -->
+                @if (box.foods && box.foods.length > 0) {
+                <div class="product-section">
+                    <h3 class="section-title">Composition</h3>
+                    <ul class="ingredients-list">
+                        @for (food of box.foods; track food.name) {
+                        <li class="ingredient-item">
+                            <span class="ingredient-name">{{ food.name }}</span>
+                            <span class="ingredient-quantity">x{{ food.quantity }}</span>
+                        </li>
+                        }
+                    </ul>
+                </div>
+                }
+
+                <!-- Bouton ajouter au panier -->
+                <button class="add-to-cart-button" (click)="ajouter()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+                    Ajouter au panier
+                </button>
+            </div>
+        </div>
+
+        <!-- Section suggestions -->
+        @if (suggestions.length > 0) {
+        <div class="suggestions-section">
+            <h2 class="suggestions-title">Vous aimerez aussi</h2>
+            <div class="suggestions-grid">
+                @for (suggestion of suggestions; track suggestion.id) {
+                <div class="suggestion-card">
+                    <div class="suggestion-image-container">
+                        <img [src]="suggestion.image" alt="{{ suggestion.name }}" class="suggestion-image">
+                    </div>
+                    <div class="suggestion-content">
+                        <h4 class="suggestion-name">{{ suggestion.name }}</h4>
+                        <div class="suggestion-footer">
+                            <span class="suggestion-pieces">{{ suggestion.pieces }} pcs</span>
+                            <span class="suggestion-price">{{ suggestion.price }}€</span>
+                        </div>
+                        <a [routerLink]="['/product', suggestion.id]" class="view-details-button">
+                            Voir détails
+                        </a>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        }
+    </div>
+    } @else {
+    <div class="not-found">
+        <h2>Produit non trouvé</h2>
+        <p>Ce produit n'existe pas ou a été supprimé.</p>
+        <a routerLink="/Menu" class="back-button">Retour au menu</a>
+    </div>
+    }
+</div>

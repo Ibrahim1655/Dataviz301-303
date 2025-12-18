@@ -1,0 +1,384 @@
+/* Import Google Font for elegant title */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* Container principal */
+.product-detail-container {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Loading state */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    color: #ffffff;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #2a2a2a;
+    border-top-color: #e74c3c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Bouton retour */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #888888;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #e74c3c;
+}
+
+.back-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Layout principal */
+.product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section image */
+.product-image-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.image-container {
+    background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+
+/* Section infos */
+.product-info-section {
+    color: #ffffff;
+}
+
+.product-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin: 0 0 1rem 0;
+    letter-spacing: 2px;
+}
+
+.product-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.pieces-count {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #888888;
+    font-size: 1.1rem;
+}
+
+.pieces-count svg {
+    width: 20px;
+    height: 20px;
+    color: #e74c3c;
+}
+
+/* Prix */
+.product-price-container {
+    margin-bottom: 2rem;
+}
+
+.product-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+/* Sections (saveurs, ingrédients) */
+.product-section {
+    margin-bottom: 2rem;
+    background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e74c3c;
+}
+
+.flavors-text {
+    color: #aaaaaa;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Liste des ingrédients */
+.ingredients-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.ingredient-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.ingredient-item:hover {
+    background: rgba(231, 76, 60, 0.1);
+}
+
+.ingredient-name {
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.ingredient-quantity {
+    color: #e74c3c;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Bouton ajouter au panier */
+.add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(145deg, #e74c3c, #c0392b);
+    border: none;
+    border-radius: 16px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+}
+
+.add-to-cart-button:hover {
+    background: linear-gradient(145deg, #ff5f4f, #e74c3c);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(231, 76, 60, 0.5);
+}
+
+.add-to-cart-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Section suggestions */
+.suggestions-section {
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    padding-top: 3rem;
+    border-top: 1px solid #333333;
+}
+
+.suggestions-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.suggestions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.suggestion-card {
+    background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.suggestion-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.suggestion-image-container {
+    padding: 0.75rem;
+}
+
+.suggestion-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.suggestion-card:hover .suggestion-image {
+    transform: scale(1.05);
+}
+
+.suggestion-content {
+    padding: 0 1rem 1rem;
+}
+
+.suggestion-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.suggestion-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.suggestion-pieces {
+    font-size: 0.85rem;
+    color: #888888;
+}
+
+.suggestion-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+/* Bouton Voir détails pour suggestions */
+.view-details-button {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(145deg, #e74c3c, #c0392b);
+    border-radius: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.view-details-button:hover {
+    background: linear-gradient(145deg, #ff5f4f, #e74c3c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+/* Not found */
+.not-found {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #ffffff;
+}
+
+.not-found h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.not-found p {
+    color: #888888;
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .product-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .product-title {
+        font-size: 2.5rem;
+    }
+
+    .ingredients-list {
+        grid-template-columns: 1fr;
+    }
+
+    .suggestions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-detail-container {
+        padding: 1rem;
+    }
+
+    .product-title {
+        font-size: 2rem;
+    }
+
+    .product-price {
+        font-size: 2rem;
+    }
+
+    .suggestions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .suggestions-title {
+        font-size: 2rem;
+    }
+}
