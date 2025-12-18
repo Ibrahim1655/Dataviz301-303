@@ -1,1 +1,61 @@
-<p>contact works!</p>
+<div class="max-w-screen-2xl mx-auto px-6 lg:px-12 my-24">
+  <div class="md:flex md:items-start md:gap-28">
+
+    <!-- Left: Google Maps -->
+    <div class="w-full md:w-1/2 mb-10 md:mb-0">
+      <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+        <iframe
+          class="w-full h-[720px] md:h-[820px] lg:h-[980px]"
+          src="https://www.google.com/maps?q=IUT+Gustave+Eiffel+Meaux&output=embed"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localisation IUT Gustave Eiffel Meaux"></iframe>
+      </div>
+      <p class="mt-3 text-gray-700 font-medium"> <strong>IUT Gustave Eiffel</strong><br>Meaux, France</p>
+    </div>
+
+    <!-- Right: Contact form -->
+    <div class="w-full md:w-1/2">
+      <div class="bg-white rounded-lg shadow-lg p-20">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Nous contacter</h2>
+        <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="space-y-6">
+
+          <div>
+            <label for="nom" class="block text-sm font-semibold text-gray-700 mb-2">Nom</label>
+            <input id="nom" type="text" formControlName="nom" placeholder="Votre nom"
+              class="w-full border border-gray-300 rounded-md p-4 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+              <input id="email" type="email" formControlName="email" placeholder="votre@email.com"
+                class="w-full border border-gray-300 rounded-md p-4 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Votre message</label>
+              <textarea id="message" formControlName="message" rows="6" placeholder="Votre message..."
+                class="w-full border border-gray-300 rounded-md p-4 h-56 resize-y text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"></textarea>
+          </div>
+
+          <div class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-md p-3">
+            <label class="flex items-center gap-3">
+              <input type="checkbox" id="recaptcha" formControlName="recaptcha" class="w-8 h-8 rounded" />
+              <span class="text-gray-700 font-medium">Je suis un humain</span>
+            </label>
+            <div class="text-xs text-gray-500">Confidentialité - Conditions</div>
+          </div>
+
+          <button type="submit" [disabled]="!contactForm.valid"
+            class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-4 text-lg rounded-md disabled:opacity-60 disabled:cursor-not-allowed">
+            Envoyer
+          </button>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
