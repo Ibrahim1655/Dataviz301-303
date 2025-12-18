@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Sushi } from '../Services/sushi';
 import { CommonModule } from '@angular/common';
 import { Box } from '../Models/iboxes';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../Components/header-component/header-component';
 import { Navbar } from '../shared/navbar/navbar';
 //pour pouvoir accès au icônes de Lucide Angular
@@ -12,7 +12,7 @@ import { PanierService } from '../panier-service';
 
 @Component({
   selector: 'app-menu',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink],
   standalone: true,
   templateUrl: './menu.html',
   styleUrl: './menu.css',
@@ -51,11 +51,11 @@ export class Menu implements OnInit {
       }));
     });
 
-   
+
 
   }
 
-  ajouter(box: Box){
+  ajouter(box: Box) {
     this.panierService.ajouter(box);
     console.log(box + "ajouté au panier")
   }

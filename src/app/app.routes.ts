@@ -5,12 +5,14 @@ import { About } from './pages/about/about';
 import { Menu } from './menu/menu';
 import { Contact } from './pages/contact/contact';
 import { Panier } from './panier/panier';
+import { ProductDetail } from './pages/product-detail/product-detail';
 
 export const routes: Routes = [
-    {path:'', component:Landing},
-    {path:'About', component:About},
-    {path:'Menu', component:Menu},
-    {path:'Contact', component:Contact},
-    {path:'Panier', component:Panier}
-    
+    { path: '', component: Landing },
+    { path: 'About', component: About },
+    { path: 'Menu', component: Menu },
+    { path: 'Contact', component: Contact },
+    { path: 'Panier', component: Panier },
+    { path: 'product/:id', component: ProductDetail }
+
 ];
