@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Buttons {
   commandeButton : string = "Commander"
-  buttonClasses: string = "bg-[#DEBA97] text-white px-20 py-3 rounded-2xl hover:bg-[#C49564] transition-colors duration-300 cursor-pointer";
+  buttonClasses: string = "bg-[#C62828] text-white px-20 py-3 rounded-2xl hover:bg-[#C49564] transition-colors duration-300 cursor-pointer";
   
   constructor(){
     this.commandeButton = "Commander";
