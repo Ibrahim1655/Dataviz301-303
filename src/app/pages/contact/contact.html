@@ -1,61 +1,64 @@
-<div class="max-w-screen-2xl mx-auto px-6 lg:px-12 my-24">
-  <div class="md:flex md:items-start md:gap-28">
+<div class="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 px-6 lg:px-12 py-24">
+  <div class="max-w-screen-2xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">Contactez-nous</h1>
+    
+    <div class="md:flex md:items-stretch md:gap-8">
 
-   
-    <div class="w-full md:w-1/2 mb-10 md:mb-0">
-      <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-        <iframe
-          class="w-full h-[720px] md:h-[820px] lg:h-[980px]"
-          src="https://www.google.com/maps?q=IUT+Gustave+Eiffel+Meaux&output=embed"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Localisation IUT Gustave Eiffel Meaux"></iframe>
+  
+      <div class="w-full md:w-1/2 mb-10 md:mb-0">
+        <div class="bg-black rounded-lg overflow-hidden shadow-2xl border border-gray-800 h-full min-h-[620px]">
+          <iframe
+            class="w-full h-full"
+            src="https://www.google.com/maps?q=IUT+Gustave+Eiffel+Meaux&output=embed"
+            style="border:0; filter: invert(1) hue-rotate(180deg);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localisation IUT Gustave Eiffel Meaux"></iframe>
+        </div>
+        <p class="mt-4 text-gray-300 font-medium text-sm"> <strong class="text-white">IUT Gustave Eiffel</strong><br>Meaux, France</p>
       </div>
-      <p class="mt-3 text-gray-700 font-medium"> <strong>IUT Gustave Eiffel</strong><br>Meaux, France</p>
-    </div>
 
-   
-    <div class="w-full md:w-1/2">
-      <div class="bg-white rounded-lg shadow-lg p-20">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Nous contacter</h2>
-        <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="space-y-6">
+     
+      <div class="w-full md:w-1/2">
+        <div class="bg-gradient-to-br from-gray-900 to-black rounded-lg shadow-2xl border border-gray-800 p-12 h-full min-h-[620px] flex flex-col justify-center">
+          <h2 class="text-3xl font-bold text-white mb-8">Nous contacter</h2>
+          <form (ngSubmit)="onSubmit()" [formGroup]="contactForm" class="space-y-6">
 
-          <div>
-            <label for="nom" class="block text-sm font-semibold text-gray-700 mb-2">Nom</label>
-            <input id="nom" type="text" formControlName="nom" placeholder="Votre nom"
-              class="w-full border border-gray-300 rounded-md p-4 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
-          </div>
+            <div>
+              <label for="nom" class="block text-sm font-semibold text-gray-300 mb-2">Nom</label>
+              <input id="nom" type="text" formControlName="nom" placeholder="Votre nom"
+                class="w-full bg-gray-800 border border-gray-700 rounded-lg p-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition" />
+            </div>
 
-          <div>
-            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+            <div>
+              <label for="email" class="block text-sm font-semibold text-gray-300 mb-2">Email</label>
               <input id="email" type="email" formControlName="email" placeholder="votre@email.com"
-                class="w-full border border-gray-300 rounded-md p-4 text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
-          </div>
+                class="w-full bg-gray-800 border border-gray-700 rounded-lg p-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition" />
+            </div>
 
-          <div>
-            <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Votre message</label>
-              <textarea id="message" formControlName="message" rows="6" placeholder="Votre message..."
-                class="w-full border border-gray-300 rounded-md p-4 h-56 resize-y text-base focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"></textarea>
-          </div>
+            <div>
+              <label for="message" class="block text-sm font-semibold text-gray-300 mb-2">Votre message</label>
+              <textarea id="message" formControlName="message" rows="4" placeholder="Votre message..."
+                class="w-full bg-gray-800 border border-gray-700 rounded-lg p-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition resize-none"></textarea>
+            </div>
 
-          <div class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-md p-3">
-            <label class="flex items-center gap-3">
-              <input type="checkbox" id="recaptcha" formControlName="recaptcha" class="w-8 h-8 rounded" />
-              <span class="text-gray-700 font-medium">Je suis un humain</span>
-            </label>
-            <div class="text-xs text-gray-500">Confidentialité - Conditions</div>
-          </div>
+            <div class="flex items-center gap-3 bg-gray-800 border border-gray-700 rounded-lg p-4">
+              <label class="flex items-center gap-3">
+                <input type="checkbox" id="recaptcha" formControlName="recaptcha" class="w-5 h-5 rounded accent-amber-500" />
+                <span class="text-gray-300 font-medium cursor-pointer">Je suis un humain</span>
+              </label>
+            </div>
 
-          <button type="submit" [disabled]="!contactForm.valid"
-            class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-4 text-lg rounded-md disabled:opacity-60 disabled:cursor-not-allowed">
-            Envoyer
-          </button>
+            <button type="submit" [disabled]="!contactForm.valid"
+              class="w-full bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white font-bold py-4 text-lg rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition transform hover:scale-105">
+              Envoyer
+            </button>
 
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
