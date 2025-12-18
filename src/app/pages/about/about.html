@@ -1,1 +1,235 @@
-<p>about works!</p>
+<!-- Hero Section avec forme organique -->
+<section class="min-h-[80vh] bg-black relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-8 items-center">
+        <!-- Texte -->
+        <div class="z-10">
+            <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                Vos Sushis Préférés,
+                <span class="text-red-500">Frais</span> &
+                <span class="text-red-500">Délicieux</span>
+            </h1>
+            <p class="text-gray-400 text-lg mb-8 max-w-md">
+                Nos chefs préparent chaque plat avec passion, en utilisant uniquement
+                des ingrédients frais sélectionnés avec soin.
+            </p>
+            <a routerLink="/Menu"
+                class="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full font-medium transition-colors">
+                Commander
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Image avec fond organique -->
+        <div class="relative flex justify-center">
+            <div class="absolute w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] bg-red-500/20 rounded-full blur-3xl">
+            </div>
+            <div
+                class="relative w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] rounded-full overflow-hidden border-4 border-red-500/30">
+                <img src="/gourmet-mix.jpg" alt="Sushi Gourmet" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Info Bar -->
+<section class="bg-gray-900 py-8 border-y border-gray-800">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="flex flex-wrap justify-center gap-8 lg:gap-16">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-white font-medium">11h00 - 22h00</p>
+                    <p class="text-gray-500 text-sm">Horaires</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-white font-medium">17 rue Jablinot, Meaux</p>
+                    <p class="text-gray-500 text-sm">Notre adresse</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.5 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-white font-medium">+33 1 23 45 67 89</p>
+                    <p class="text-gray-500 text-sm">Appelez-nous</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Notre Histoire avec image ronde -->
+<section class="bg-black py-20">
+    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Image ronde -->
+        <div class="relative flex justify-center">
+            <div class="absolute -left-10 -top-10 w-32 h-32 bg-red-500 rounded-full opacity-20"></div>
+            <div class="absolute -right-5 -bottom-5 w-20 h-20 bg-red-500 rounded-full opacity-30"></div>
+            <div
+                class="w-[320px] h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-8 border-gray-800 shadow-2xl relative z-10">
+                <img src="/chefjapanese.jpg" alt="Notre Chef" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <!-- Texte -->
+        <div>
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                L'Art du Sushi est<br>Notre <span class="text-red-500">Passion</span>
+            </h2>
+            <p class="text-gray-400 mb-4">
+                Depuis 2015, Sushi Crousty perpétue la tradition japonaise avec une touche
+                moderne. Nos maîtres sushi, formés au Japon, créent chaque jour des œuvres
+                d'art culinaires.
+            </p>
+            <p class="text-gray-400 mb-4">
+                Nous sélectionnons nos poissons auprès de pêcheurs responsables et nos
+                légumes proviennent de producteurs locaux.
+            </p>
+            <p class="text-gray-400 mb-8">
+                Chaque bouchée raconte une histoire de savoir-faire et de passion transmis
+                de génération en génération.
+            </p>
+            <div class="flex gap-4">
+                <a routerLink="/Menu"
+                    class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-medium transition-colors">
+                    Notre Menu
+                </a>
+                <button class="flex items-center gap-2 text-white hover:text-red-500 transition-colors">
+                    <div class="w-12 h-12 rounded-full border-2 border-gray-700 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                    </div>
+                    Voir la vidéo
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comment ça marche -->
+<section class="bg-gray-900 py-20">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Comment ça marche</h2>
+        <p class="text-gray-400 mb-12 max-w-xl mx-auto">
+            Commander vos sushis n'a jamais été aussi simple
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div>
+                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-red-500/10 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3">Choisissez vos plats</h3>
+                <p class="text-gray-400">Parcourez notre menu et sélectionnez vos sushis préférés</p>
+            </div>
+            <div>
+                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-red-500/10 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3">Payez en ligne</h3>
+                <p class="text-gray-400">Paiement sécurisé par carte ou à la livraison</p>
+            </div>
+            <div>
+                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-red-500/10 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a3 3 0 11-6 0m6 0a3 3 0 11-6 0" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-3">Livraison rapide</h3>
+                <p class="text-gray-400">Recevez vos sushis frais en 30 minutes</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nos Best-sellers -->
+<section class="bg-black py-20">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Nos Best-sellers</h2>
+            <p class="text-gray-400">Les favoris de nos clients</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            @for (box of bestSellers; track box.id) {
+            <div class="bg-gray-900 rounded-2xl overflow-hidden group">
+                <div class="aspect-square overflow-hidden">
+                    <img [src]="box.image" [alt]="box.name"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-semibold text-white">{{ box.name }}</h3>
+                        <span class="text-red-500 font-bold">{{ box.price }}€</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-4">{{ box.pieces }} pièces - {{ box.flavors.join(', ') }}</p>
+                    <button (click)="ajouterAuPanier(box)"
+                        class="w-full bg-gray-800 hover:bg-red-500 text-white py-2 rounded-lg transition-colors">
+                        + Ajouter
+                    </button>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="text-center mt-10">
+            <a routerLink="/Menu" class="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-medium">
+                Voir tout le menu
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section class="bg-gray-900 py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+            Envie de sushis ?
+        </h2>
+        <p class="text-gray-400 mb-8">
+            Commandez maintenant et faites-vous livrer en moins de 30 minutes
+        </p>
+        <a routerLink="/Menu"
+            class="inline-block bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full font-medium text-lg transition-colors">
+            Commander maintenant
+        </a>
+    </div>
+</section>

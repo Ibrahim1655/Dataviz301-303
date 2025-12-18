@@ -19,6 +19,11 @@ export class Navbar {
   showUserPopup: boolean = false;
   popupView: 'menu' | 'login' | 'register' = 'menu';
 
+  // Propriétés pour la visibilité des mots de passe
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
+  registerBirthDate: string = '';
+
   toggleUserPopup(): void {
     this.showUserPopup = !this.showUserPopup;
     if (this.showUserPopup) {
@@ -36,6 +41,14 @@ export class Navbar {
 
   backToMenu(): void {
     this.popupView = 'menu';
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+
+  toggleConfirmPasswordVisibility(): void {
+    this.showConfirmPassword = !this.showConfirmPassword;
   }
 }
 

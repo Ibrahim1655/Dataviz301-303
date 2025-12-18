@@ -63,61 +63,217 @@
 
 <!-- Modal Overlay pour Login/Register -->
 <div *ngIf="showUserPopup && popupView !== 'menu'"
-    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-100 flex items-center justify-center"
+    class="fixed inset-0 bg-black/80 backdrop-blur-sm z-100 flex items-center justify-center"
     (click)="toggleUserPopup()">
 
     <!-- Modal Content -->
-    <div class="bg-linear-to-br from-gray-900 to-black border border-red-500/30 rounded-2xl shadow-2xl p-8 w-[90%] max-w-[450px] transform animate-pulse"
+    <div class="bg-gradient-to-b from-gray-900 via-gray-900 to-black rounded-3xl shadow-2xl p-6 w-[90%] max-w-[420px] relative"
         (click)="$event.stopPropagation()">
+
+        <!-- Bouton fermer -->
+        <button (click)="toggleUserPopup()"
+            class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Tabs Sign up / Sign in -->
+        <div class="flex justify-center mb-6">
+            <div class="bg-gray-800 rounded-full p-1 flex gap-1">
+                <button (click)="showRegister()"
+                    [class]="popupView === 'register' ? 'bg-gray-700 text-white' : 'text-gray-400 hover:text-white'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    S'inscrire
+                </button>
+                <button (click)="showLogin()"
+                    [class]="popupView === 'login' ? 'bg-gray-700 text-white' : 'text-gray-400 hover:text-white'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    Connexion
+                </button>
+            </div>
+        </div>
 
         <!-- Login View -->
         <div *ngIf="popupView === 'login'" class="flex flex-col gap-4">
-            <div class="flex items-center justify-between border-b border-red-500/20 pb-3 mb-2">
-                <button (click)="backToMenu()"
-                    class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1">
-                    <span>←</span> Retour
-                </button>
-                <button (click)="showRegister()"
-                    class="text-red-400 hover:text-red-300 transition-colors text-sm font-medium">
-                    S'inscrire →
+            <h3 class="text-white font-bold text-xl mb-2">Connexion</h3>
+
+            <!-- Email avec icône -->
+            <div class="relative">
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <input type="email" placeholder="Entrez votre email"
+                    class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full">
+            </div>
+
+            <!-- Mot de passe avec icône oeil -->
+            <div class="relative">
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <input [type]="showPassword ? 'text' : 'password'" placeholder="Mot de passe"
+                    class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-12 py-3.5 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full">
+                <button type="button" (click)="togglePasswordVisibility()"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors">
+                    <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <svg *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                        </path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
                 </button>
             </div>
-            <h3 class="text-white text-center font-bold text-2xl mb-4">Connexion</h3>
-            <input type="email" placeholder="Email"
-                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
-            <input type="password" placeholder="Mot de passe"
-                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
+
             <button
-                class="bg-linear-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-red-500/25 hover:scale-105 mt-4 text-lg">
+                class="bg-gradient-to-r from-gray-200 to-white text-gray-900 font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 hover:opacity-90 hover:scale-[1.02] mt-2 shadow-lg">
                 Se connecter
             </button>
+
+
+
+            <p class="text-gray-500 text-xs text-center mt-2">
+                En vous connectant, vous acceptez nos <span
+                    class="text-gray-400 hover:text-white cursor-pointer">Conditions d'utilisation</span>
+            </p>
         </div>
 
         <!-- Register View -->
-        <div *ngIf="popupView === 'register'" class="flex flex-col gap-4">
-            <div class="flex items-center justify-between border-b border-red-500/20 pb-3 mb-2">
-                <button (click)="backToMenu()"
-                    class="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1">
-                    <span>←</span> Retour
-                </button>
-                <button (click)="showLogin()"
-                    class="text-red-400 hover:text-red-300 transition-colors text-sm font-medium">
-                    Se connecter →
+        <div *ngIf="popupView === 'register'" class="flex flex-col gap-3">
+            <h3 class="text-white font-bold text-xl mb-2">Créer un compte</h3>
+
+            <!-- Nom et Prénom côte à côte -->
+            <div class="flex gap-3">
+                <input type="text" placeholder="Nom"
+                    class="flex-1 min-w-0 bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all">
+                <input type="text" placeholder="Prénom"
+                    class="flex-1 min-w-0 bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all">
+            </div>
+
+            <!-- Email avec icône -->
+            <div class="relative">
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <input type="email" placeholder="Entrez votre email"
+                    class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full">
+            </div>
+
+            <!-- Téléphone avec drapeau -->
+            <div class="flex items-center bg-gray-800/80 rounded-xl overflow-hidden">
+                <div class="flex items-center gap-2 px-4 py-3 border-r border-gray-700">
+                    <span class="text-lg">🇫🇷</span>
+                    <svg class="text-gray-500" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </div>
+                <input type="tel" placeholder="6 12 34 56 78"
+                    class="flex-1 bg-transparent border-none text-white placeholder-gray-500 px-4 py-3 focus:outline-none">
+            </div>
+
+            <!-- Date de naissance -->
+            <div class="relative">
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                    <line x1="16" x2="16" y1="2" y2="6"></line>
+                    <line x1="8" x2="8" y1="2" y2="6"></line>
+                    <line x1="3" x2="21" y1="10" y2="10"></line>
+                </svg>
+                <input type="date"
+                    class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full [color-scheme:dark]">
+            </div>
+
+            <!-- Mot de passe avec icône oeil -->
+            <div class="relative">
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <input [type]="showPassword ? 'text' : 'password'" placeholder="Mot de passe"
+                    class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full">
+                <button type="button" (click)="togglePasswordVisibility()"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors">
+                    <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <svg *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                        </path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
                 </button>
             </div>
-            <h3 class="text-white text-center font-bold text-2xl mb-4">Inscription</h3>
-            <input type="text" placeholder="Nom complet"
-                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
-            <input type="email" placeholder="Email"
-                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
-            <input type="password" placeholder="Mot de passe"
-                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
-            <input type="password" placeholder="Confirmer le mot de passe"
-                class="bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-5 py-3 focus:outline-none focus:border-red-500 transition-colors text-lg">
+
+            <!-- Confirmer mot de passe -->
+            <div class="relative">
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <input [type]="showConfirmPassword ? 'text' : 'password'" placeholder="Confirmer le mot de passe"
+                    class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full">
+                <button type="button" (click)="toggleConfirmPasswordVisibility()"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors">
+                    <svg *ngIf="!showConfirmPassword" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <svg *ngIf="showConfirmPassword" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                        </path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
+                </button>
+            </div>
+
             <button
-                class="bg-linear-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-red-500/25 hover:scale-105 mt-4 text-lg">
-                S'inscrire
+                class="bg-gradient-to-r from-gray-200 to-white text-gray-900 font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 hover:opacity-90 hover:scale-[1.02] mt-2 shadow-lg">
+                Créer un compte
             </button>
+
+
+
+            <p class="text-gray-500 text-xs text-center mt-1">
+                En créant un compte, vous acceptez nos <span
+                    class="text-gray-400 hover:text-white cursor-pointer">Conditions d'utilisation</span>
+            </p>
         </div>
     </div>
-</div>
