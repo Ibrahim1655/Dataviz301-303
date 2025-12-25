@@ -47,4 +47,13 @@
       }
     </section>
   </div>
+
+  @if (showToast) {
+    <div class="fixed top-24 right-8 bg-[#EC3C3C] text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3  z-50 border border-white/20">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
+      <span class="font-semibold">{{toastMessage}}</span>
+    </div>
+  }
 </router-outlet>

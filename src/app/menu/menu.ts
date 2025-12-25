@@ -23,6 +23,11 @@ export class Menu implements OnInit {
   private panierService = inject(PanierService)
 
   boxes: Box[] = []
+  
+  // État pour le toast
+  showToast = false;
+  toastMessage = '';
+  toastTimeout: any;
 
   // Images de sushi variées pour chaque box
   private sushiImages: string[] = [
@@ -57,7 +62,20 @@ export class Menu implements OnInit {
 
   ajouter(box: Box) {
     this.panierService.ajouter(box);
-    console.log(box + "ajouté au panier")
+    this.afficherToast(`${box.name} ajouté au panier !`);
+  }
+
+  afficherToast(message: string) {
+    this.toastMessage = message;
+    this.showToast = true;
+    
+    if (this.toastTimeout) {
+      clearTimeout(this.toastTimeout);
+    }
+    
+    this.toastTimeout = setTimeout(() => {
+      this.showToast = false;
+    }, 3000);
   }
 
 
