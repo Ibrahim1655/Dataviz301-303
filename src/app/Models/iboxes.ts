@@ -11,4 +11,5 @@ export interface Box {
   image: string;
   foods: Aliment[];
   flavors: string[];
+  quantity?: number;// pour la quantité de l'article dans le panier
 }
