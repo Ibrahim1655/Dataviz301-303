@@ -6,6 +6,7 @@ import { Menu } from './menu/menu';
 import { Contact } from './pages/contact/contact';
 import { Panier } from './panier/panier';
 import { ProductDetail } from './pages/product-detail/product-detail';
+import { Compte } from './compte/compte';
 
 export const routes: Routes = [
     { path: '', component: Landing },
@@ -13,6 +14,8 @@ export const routes: Routes = [
     { path: 'Menu', component: Menu },
     { path: 'Contact', component: Contact },
     { path: 'Panier', component: Panier },
-    { path: 'product/:id', component: ProductDetail }
+    { path: 'product/:id', component: ProductDetail },
+    { path: 'Profil', component: Compte }
 
 ];
+
