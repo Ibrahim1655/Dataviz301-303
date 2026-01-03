@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class Sushi {
   //L'attribut ontenant l'Api
-  private apiUrl: string = "http://localhost/TD2_TDapi/sushi_box/api/boxes/index.php"
+  private apiUrl: string = "http://localhost/API_Dataviz/sushi_box/api/boxes/index.php"
 
   // On a accès au service en l'injectant dans le constructeur , dans l'attribut http
   constructor(private http: HttpClient) { }

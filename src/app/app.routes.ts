@@ -10,6 +10,7 @@ import { Compte } from './compte/compte';
 import { Confidentialite } from './pages/confidentialite/confidentialite';
 import { Cgv } from './pages/cgv/cgv';
 import { MentionsLegales } from './pages/mentions-legales/mentions-legales';
+import { Dashboard } from './pages/dashboard/dashboard';
 
 export const routes: Routes = [
     { path: '', component: Landing },
@@ -21,7 +22,8 @@ export const routes: Routes = [
     { path: 'Profil', component: Compte },
     { path: 'Confidentialite', component: Confidentialite },
     { path: 'Cgv', component: Cgv },
-    { path: 'MentionsLegales', component: MentionsLegales }
+    { path: 'MentionsLegales', component: MentionsLegales },
+    { path: 'Dashboard', component: Dashboard }
 
 ];
 
