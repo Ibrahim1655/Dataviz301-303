@@ -1,6 +1,15 @@
-<div class="w-full relative">
-    <img [src]="urlImageSushi" alt="image de sushi" class="brightness-20 w-full h-[800px] object-cover">
-    <div class="absolute inset-0 flex flex-col items-center justify-center -translate-y-16">
+<div class="w-full relative h-[800px] overflow-hidden bg-black">
+    <!-- Carousel -->
+    @for (image of images; track image; let i = $index) {
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+             [class.opacity-100]="i === currentIndex"
+             [class.opacity-0]="i !== currentIndex">
+            <img [src]="image" alt="image de sushi" class="w-full h-full object-cover brightness-[0.35]">
+        </div>
+    }
+
+  
+    <div class="absolute inset-0 flex flex-col items-center justify-center -translate-y-16 z-10">
         <h1 [ngClass]="titleClasses">Sushi Crousty</h1>
         <p class="font-['Cormorant_Garamond'] text-white text-xl font-thin opacity-80 -translate-y-10 text-center">Table de cuisine japonaise raffinée</p>
         <a routerLink="Menu"><app-buttons></app-buttons></a>
