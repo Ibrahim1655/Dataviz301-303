@@ -126,7 +126,8 @@ export class Navbar implements OnInit {
       nom: this.registerNom || null,
       prenom: this.registerPrenom || null,
       telephone: this.registerTelephone || null,
-      adresse: null
+      adresse: null,
+      dateNaissance: this.registerBirthDate || null
     };
 
     this.userService.register(userData).subscribe({

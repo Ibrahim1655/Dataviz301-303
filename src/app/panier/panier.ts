@@ -25,6 +25,35 @@ export class Panier {
   isLoading = false;// le client est il en train de payer
   isSuccess = false;// la paiement est il validé
 
+  // Extras (sauces et couverts)
+  extras = {
+    sauceSalee: { quantity: 0, price: 0.15, name: 'Sauce Salée' },
+    sauceSucree: { quantity: 0, price: 0.15, name: 'Sauce Sucrée' },
+    couverts: { quantity: 0, price: 0, name: 'Couverts' }
+  };
+
+  incrementerExtra(key: 'sauceSalee' | 'sauceSucree' | 'couverts') {
+    this.extras[key].quantity++;
+  }
+
+  decrementerExtra(key: 'sauceSalee' | 'sauceSucree' | 'couverts') {
+    if (this.extras[key].quantity > 0) {
+      this.extras[key].quantity--;
+    }
+  }
+
+  getTotalExtras(): number {
+    return +(
+      this.extras.sauceSalee.quantity * this.extras.sauceSalee.price +
+      this.extras.sauceSucree.quantity * this.extras.sauceSucree.price +
+      this.extras.couverts.quantity * this.extras.couverts.price
+    ).toFixed(2);
+  }
+
+  getTotalWithExtras(): number {
+    return +(this.panierService.total() + this.getTotalExtras()).toFixed(2);
+  }
+
 
 
 

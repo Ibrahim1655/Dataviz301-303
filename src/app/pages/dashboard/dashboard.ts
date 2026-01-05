@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Chart, registerables } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { OrderService } from '../../Services/order.service';
+import { UserService } from '../../Services/user.service';
+import { User } from '../../Models/iuser';
 
 // Register Chart.js components
 Chart.register(...registerables);
@@ -18,8 +20,10 @@ export class Dashboard implements OnInit {
   @ViewChild('menuChart') menuChart?: BaseChartDirective;
   @ViewChild('ordersChart') ordersChart?: BaseChartDirective;
   @ViewChild('categoryChart') categoryChart?: BaseChartDirective;
+  @ViewChild('ageChart') ageChart?: BaseChartDirective;
 
   private orderService = inject(OrderService);
+  private userService = inject(UserService);
   private cdr = inject(ChangeDetectorRef);
 
   // Palette de couleurs orange/ambre pour correspondre à la charte graphique
@@ -197,6 +201,7 @@ export class Dashboard implements OnInit {
 
   ngOnInit(): void {
     this.loadStats();
+    this.loadAgeStats();
   }
 
   private loadStats(): void {
@@ -246,4 +251,77 @@ export class Dashboard implements OnInit {
 
     this.cdr.detectChanges();
   }
+
+  // Calculer l'âge à partir de la date de naissance
+  private calculateAge(dateNaissance: string): number {
+    const today = new Date();
+    const birthDate = new Date(dateNaissance);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  // Charger les statistiques par tranche d'âge depuis les utilisateurs
+  private loadAgeStats(): void {
+    this.userService.getUsers().subscribe({
+      next: (users: User[]) => {
+        // Initialiser les compteurs par tranche d'âge
+        const ageGroups = {
+          '18-25 ans': 0,
+          '26-35 ans': 0,
+          '36-45 ans': 0,
+          '46-55 ans': 0,
+          '55+ ans': 0
+        };
+
+        // Compter les utilisateurs par tranche d'âge
+        users.forEach(user => {
+          if (user.dateNaissance) {
+            const age = this.calculateAge(user.dateNaissance);
+
+            if (age >= 18 && age <= 25) {
+              ageGroups['18-25 ans']++;
+            } else if (age >= 26 && age <= 35) {
+              ageGroups['26-35 ans']++;
+            } else if (age >= 36 && age <= 45) {
+              ageGroups['36-45 ans']++;
+            } else if (age >= 46 && age <= 55) {
+              ageGroups['46-55 ans']++;
+            } else if (age > 55) {
+              ageGroups['55+ ans']++;
+            }
+          }
+        });
+
+        // Mettre à jour les données du graphique
+        const data = Object.values(ageGroups);
+        const hasData = data.some(v => v > 0);
+
+        this.ageData = {
+          labels: this.ageLabels,
+          datasets: [{
+            data: hasData ? data : [0, 0, 0, 0, 0],
+            backgroundColor: this.orangePalette,
+            borderColor: '#1a1a1a',
+            borderWidth: 3,
+            hoverOffset: 15
+          }]
+        };
+
+        // Forcer la mise à jour du graphique
+        if (this.ageChart) {
+          this.ageChart.update();
+        }
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Erreur lors du chargement des utilisateurs:', err);
+      }
+    });
+  }
 }
+

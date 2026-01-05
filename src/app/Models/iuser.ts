@@ -6,4 +6,5 @@ export interface User {
     prenom: string | null;
     telephone: string | null;
     adresse: string | null;
+    dateNaissance: string | null;
 }
