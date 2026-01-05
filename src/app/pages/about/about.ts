@@ -1,7 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { PanierService } from '../../panier-service';
-import { Box } from '../../Models/iboxes';
 
 @Component({
   selector: 'app-about',
@@ -9,41 +7,31 @@ import { Box } from '../../Models/iboxes';
   templateUrl: './about.html',
   styleUrl: './about.css',
 })
-export class About {
-  private panierService = inject(PanierService);
+export class About implements AfterViewInit {
 
-  // Best-sellers à afficher
-  bestSellers: Box[] = [
-    {
-      id: 101,
-      name: 'California Dream',
-      pieces: 8,
-      price: 14,
-      image: '/california-dream.jpg',
-      foods: [{ name: 'Saumon', quantity: 4 }, { name: 'Avocat', quantity: 4 }],
-      flavors: ['Saumon', 'Avocat', 'Cheese']
-    },
-    {
-      id: 102,
-      name: 'Super Salmon',
-      pieces: 10,
-      price: 16,
-      image: '/super-salmon.jpg',
-      foods: [{ name: 'Saumon', quantity: 10 }],
-      flavors: ['Double saumon frais']
-    },
-    {
-      id: 103,
-      name: 'Master Mix',
-      pieces: 18,
-      price: 22,
-      image: '/master-mix.jpg',
-      foods: [{ name: 'Assortiment', quantity: 18 }],
-      flavors: ['Assortiment varié']
-    }
-  ];
+  constructor(private elementRef: ElementRef) { }
 
-  ajouterAuPanier(box: Box) {
-    this.panierService.ajouter(box);
+  ngAfterViewInit() {
+    this.initScrollAnimations();
+  }
+
+
+  private initScrollAnimations() {
+    const animatedElements = this.elementRef.nativeElement.querySelectorAll(
+      '.fade-up, .fade-left, .fade-right, .fade-scale'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    animatedElements.forEach((element: Element) => {
+      observer.observe(element);
+    });
   }
 }

@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  border: 1px solid rgba(230, 126, 34, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -51,7 +51,7 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(180deg, #e67e22, #d35400);
+  background: linear-gradient(180deg, #ef4444, #dc2626);
   border-radius: 16px 0 0 16px;
 }
 
@@ -68,7 +68,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(230, 126, 34, 0.15);
+  background: rgba(239, 68, 68, 0.15);
   border-radius: 12px;
 }
 
@@ -93,8 +93,8 @@
 }
 
 .stat-trend {
-  background: rgba(230, 126, 34, 0.2);
-  color: #e67e22;
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
   padding: 0.35rem 0.75rem;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -125,7 +125,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #e67e22, #d35400);
+  background: linear-gradient(90deg, #ef4444, #dc2626);
 }
 
 .chart-card:hover {

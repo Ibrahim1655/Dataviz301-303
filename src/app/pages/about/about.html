@@ -1,235 +1,296 @@
-<!-- Hero Section avec forme organique -->
-<section class="min-h-[80vh] bg-black relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-8 items-center">
-        <!-- Texte -->
-        <div class="z-10">
-            <h1 class="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Vos Sushis Préférés,
-                <span class="text-red-500">Frais</span> &
-                <span class="text-red-500">Délicieux</span>
-            </h1>
-            <p class="text-gray-400 text-lg mb-8 max-w-md">
-                Nos chefs préparent chaque plat avec passion, en utilisant uniquement
-                des ingrédients frais sélectionnés avec soin.
-            </p>
-            <a routerLink="/Menu"
-                class="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full font-medium transition-colors">
-                Commander
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </a>
-        </div>
+<!-- Hero Section Noir avec image à droite -->
+<section class="relative bg-[#0f0f0f] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+            <!-- Texte à gauche -->
+            <div class="z-10">
+                <p class="fade-left text-red-500 uppercase tracking-widest text-sm mb-2">Un nouveau concept</p>
+                <h1 class="fade-left delay-100 text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
+                    POURQUOI SUSHI CROUSTY ?
+                </h1>
+                <p class="fade-left delay-200 text-white/60 mb-4 leading-relaxed">
+                    Parce que nous croyons qu'un bon sushi mérite les meilleurs ingrédients. Poissons frais
+                    sélectionnés chaque matin, riz assaisonné selon la tradition japonaise, et des recettes
+                    qui allient authenticité et créativité.
+                </p>
+                <ul class="fade-left delay-300 text-white/60 space-y-2 mb-6">
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-500 font-bold">→</span>
+                        Des produits frais livrés quotidiennement
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-500 font-bold">→</span>
+                        Une équipe passionnée formée aux techniques japonaises
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-500 font-bold">→</span>
+                        Un engagement pour la qualité et le goût
+                    </li>
+                </ul>
 
-        <!-- Image avec fond organique -->
-        <div class="relative flex justify-center">
-            <div class="absolute w-[400px] h-[400px] lg:w-[500px] lg:h-[500px] bg-red-500/20 rounded-full blur-3xl">
-            </div>
-            <div
-                class="relative w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] rounded-full overflow-hidden border-4 border-red-500/30">
-                <img src="/gourmet-mix.jpg" alt="Sushi Gourmet" class="w-full h-full object-cover">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Info Bar -->
-<section class="bg-gray-900 py-8 border-y border-gray-800">
-    <div class="max-w-5xl mx-auto px-6">
-        <div class="flex flex-wrap justify-center gap-8 lg:gap-16">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-white font-medium">11h00 - 22h00</p>
-                    <p class="text-gray-500 text-sm">Horaires</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-white font-medium">17 rue Jablinot, Meaux</p>
-                    <p class="text-gray-500 text-sm">Notre adresse</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.5 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z" />
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-white font-medium">+33 1 23 45 67 89</p>
-                    <p class="text-gray-500 text-sm">Appelez-nous</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Notre Histoire avec image ronde -->
-<section class="bg-black py-20">
-    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Image ronde -->
-        <div class="relative flex justify-center">
-            <div class="absolute -left-10 -top-10 w-32 h-32 bg-red-500 rounded-full opacity-20"></div>
-            <div class="absolute -right-5 -bottom-5 w-20 h-20 bg-red-500 rounded-full opacity-30"></div>
-            <div
-                class="w-[320px] h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-8 border-gray-800 shadow-2xl relative z-10">
-                <img src="/chefjapanese.jpg" alt="Notre Chef" class="w-full h-full object-cover">
-            </div>
-        </div>
-
-        <!-- Texte -->
-        <div>
-            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-                L'Art du Sushi est<br>Notre <span class="text-red-500">Passion</span>
-            </h2>
-            <p class="text-gray-400 mb-4">
-                Depuis 2015, Sushi Crousty perpétue la tradition japonaise avec une touche
-                moderne. Nos maîtres sushi, formés au Japon, créent chaque jour des œuvres
-                d'art culinaires.
-            </p>
-            <p class="text-gray-400 mb-4">
-                Nous sélectionnons nos poissons auprès de pêcheurs responsables et nos
-                légumes proviennent de producteurs locaux.
-            </p>
-            <p class="text-gray-400 mb-8">
-                Chaque bouchée raconte une histoire de savoir-faire et de passion transmis
-                de génération en génération.
-            </p>
-            <div class="flex gap-4">
-                <a routerLink="/Menu"
-                    class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-medium transition-colors">
-                    Notre Menu
-                </a>
-                <button class="flex items-center gap-2 text-white hover:text-red-500 transition-colors">
-                    <div class="w-12 h-12 rounded-full border-2 border-gray-700 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <polygon points="5 3 19 12 5 21 5 3" />
-                        </svg>
+                <!-- Petites cartes -->
+                <div class="fade-up delay-400 flex flex-wrap gap-3 mt-8">
+                    <div
+                        class="card-hover bg-[#1e1e1e] border border-red-500/20 rounded-lg px-4 py-3 text-center min-w-[100px]">
+                        <p class="text-red-500 font-black text-xs uppercase">Fraîcheur</p>
+                        <p class="text-white/50 text-[10px]">Poissons frais du jour</p>
                     </div>
-                    Voir la vidéo
-                </button>
+                    <div
+                        class="card-hover bg-[#1e1e1e] border border-red-500/20 rounded-lg px-4 py-3 text-center min-w-[100px]">
+                        <p class="text-red-500 font-black text-xs uppercase">Expertise</p>
+                        <p class="text-white/50 text-[10px]">Chefs formés au Japon</p>
+                    </div>
+                    <div
+                        class="card-hover bg-[#1e1e1e] border border-red-500/20 rounded-lg px-4 py-3 text-center min-w-[100px]">
+                        <p class="text-red-500 font-black text-xs uppercase">Passion</p>
+                        <p class="text-white/50 text-[10px]">L'amour du métier</p>
+                    </div>
+                    <div
+                        class="card-hover bg-[#1e1e1e] border border-red-500/20 rounded-lg px-4 py-3 text-center min-w-[100px]">
+                        <p class="text-red-500 font-black text-xs uppercase">Rapidité</p>
+                        <p class="text-white/50 text-[10px]">Livraison en 30 min</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image à droite avec animation float -->
+            <div class="fade-right relative flex justify-center lg:justify-end">
+                <img src="/gourmet-mix.jpg" alt="Sushi Gourmet"
+                    class="float-animation w-[350px] lg:w-[450px] h-[350px] lg:h-[450px] object-cover rounded-full shadow-2xl border-4 border-[#1e1e1e]">
             </div>
         </div>
     </div>
+
+    <!-- Bordure ondulée -->
+    <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+            <path
+                d="M0 120L60 110C120 100 240 80 360 75C480 70 600 80 720 85C840 90 960 90 1080 85C1200 80 1320 70 1380 65L1440 60V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+                fill="#1e1e1e" />
+        </svg>
+    </div>
 </section>
 
-<!-- Comment ça marche -->
-<section class="bg-gray-900 py-20">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Comment ça marche</h2>
-        <p class="text-gray-400 mb-12 max-w-xl mx-auto">
-            Commander vos sushis n'a jamais été aussi simple
+<!-- Section Valeurs & Engagements -->
+<section class="bg-[#1e1e1e] py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="fade-up text-3xl lg:text-4xl font-black text-white mb-4 uppercase tracking-wide">
+            Valeurs & Engagements
+        </h2>
+        <p class="fade-up delay-100 text-white/50 mb-12 max-w-2xl mx-auto">
+            Chez Sushi Crousty, nous partageons des valeurs fortes qui guident chacune de nos actions
         </p>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <div>
-                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-red-500/10 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-500" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <!-- Icônes en ligne -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+            <div class="fade-up delay-100 flex flex-col items-center">
+                <div class="card-hover w-14 h-14 rounded-full bg-red-500/15 flex items-center justify-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-red-500" fill="currentColor"
+                        viewBox="0 0 24 24">
                         <path
-                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-white mb-3">Choisissez vos plats</h3>
-                <p class="text-gray-400">Parcourez notre menu et sélectionnez vos sushis préférés</p>
+                <p class="text-red-500 font-bold text-sm uppercase">Amour</p>
+                <p class="text-white/50 text-xs mt-1">La passion du sushi dans chaque bouchée</p>
             </div>
-            <div>
-                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-red-500/10 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-500" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path
-                            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+
+            <div class="fade-up delay-200 flex flex-col items-center">
+                <div class="card-hover w-14 h-14 rounded-full bg-red-500/15 flex items-center justify-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-white mb-3">Payez en ligne</h3>
-                <p class="text-gray-400">Paiement sécurisé par carte ou à la livraison</p>
+                <p class="text-red-500 font-bold text-sm uppercase">Dynamisme</p>
+                <p class="text-white/50 text-xs mt-1">Réactivité et efficacité garanties</p>
             </div>
-            <div>
-                <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-red-500/10 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-500" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path
-                            d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a3 3 0 11-6 0m6 0a3 3 0 11-6 0" />
+
+            <div class="fade-up delay-300 flex flex-col items-center">
+                <div class="card-hover w-14 h-14 rounded-full bg-red-500/15 flex items-center justify-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-white mb-3">Livraison rapide</h3>
-                <p class="text-gray-400">Recevez vos sushis frais en 30 minutes</p>
+                <p class="text-red-500 font-bold text-sm uppercase">Audit</p>
+                <p class="text-white/50 text-xs mt-1">Contrôle qualité permanent</p>
+            </div>
+
+            <div class="fade-up delay-400 flex flex-col items-center">
+                <div class="card-hover w-14 h-14 rounded-full bg-red-500/15 flex items-center justify-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <p class="text-red-500 font-bold text-sm uppercase">Proximité</p>
+                <p class="text-white/50 text-xs mt-1">À votre écoute au quotidien</p>
+            </div>
+
+            <div class="fade-up delay-500 flex flex-col items-center">
+                <div class="card-hover w-14 h-14 rounded-full bg-red-500/15 flex items-center justify-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                </div>
+                <p class="text-red-500 font-bold text-sm uppercase">Créativité</p>
+                <p class="text-white/50 text-xs mt-1">Des recettes qui surprennent</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Nos Best-sellers -->
-<section class="bg-black py-20">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Nos Best-sellers</h2>
-            <p class="text-gray-400">Les favoris de nos clients</p>
-        </div>
+<!-- Grande image avec cartes qui chevauchent -->
+<section class="relative">
+    <!-- Image plein écran -->
+    <div class="h-[500px] lg:h-[600px] overflow-hidden">
+        <img src="/chefjapanese.jpg" alt="Notre restaurant" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/40"></div>
+    </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-            @for (box of bestSellers; track box.id) {
-            <div class="bg-gray-900 rounded-2xl overflow-hidden group">
-                <div class="aspect-square overflow-hidden">
-                    <img [src]="box.image" [alt]="box.name"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="p-5">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-semibold text-white">{{ box.name }}</h3>
-                        <span class="text-red-500 font-bold">{{ box.price }}€</span>
+    <!-- Cartes qui chevauchent l'image -->
+    <div class="absolute bottom-0 left-0 right-0 transform translate-y-1/2">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-4">
+                <!-- Carte 1 -->
+                <div
+                    class="fade-up delay-100 card-hover bg-[#1e1e1e] border-l-4 border-red-500 rounded-2xl p-6 text-white shadow-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-black text-lg uppercase text-red-500">Qualité</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
                     </div>
-                    <p class="text-gray-500 text-sm mb-4">{{ box.pieces }} pièces - {{ box.flavors.join(', ') }}</p>
-                    <button (click)="ajouterAuPanier(box)"
-                        class="w-full bg-gray-800 hover:bg-red-500 text-white py-2 rounded-lg transition-colors">
-                        + Ajouter
-                    </button>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                        Des ingrédients sélectionnés avec soin. Poissons frais, riz premium,
+                        légumes de saison. Aucun compromis sur la qualité.
+                    </p>
+                </div>
+
+                <!-- Carte 2 -->
+                <div
+                    class="fade-up delay-200 card-hover bg-[#1e1e1e] border-l-4 border-red-600 rounded-2xl p-6 text-white shadow-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-black text-lg uppercase text-red-500">Engagement</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                        Une équipe soudée et passionnée. Nous valorisons le bien-être
+                        de nos collaborateurs et l'entraide au quotidien.
+                    </p>
+                </div>
+
+                <!-- Carte 3 -->
+                <div
+                    class="fade-up delay-300 card-hover bg-[#1e1e1e] border-l-4 border-red-500 rounded-2xl p-6 text-white shadow-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-black text-lg uppercase text-red-500">Environnement</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                        Emballages recyclables, approvisionnement local et responsable.
+                        Nous agissons pour réduire notre impact environnemental.
+                    </p>
                 </div>
             </div>
-            }
         </div>
+    </div>
+</section>
 
-        <div class="text-center mt-10">
-            <a routerLink="/Menu" class="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-medium">
-                Voir tout le menu
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+<!-- Espace pour les cartes qui dépassent -->
+<div class="h-32 md:h-40 bg-[#0f0f0f]"></div>
+
+<!-- Section CTA finale -->
+<section class="relative bg-[#0f0f0f] overflow-hidden py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <h2 class="fade-up text-4xl lg:text-5xl font-black text-white mb-6 uppercase">
+            Prêt à Commander ?
+        </h2>
+        <p class="fade-up delay-100 text-white/60 text-lg mb-10 max-w-2xl mx-auto">
+            Découvrez nos créations et faites-vous livrer vos sushis préférés
+            directement chez vous en moins de 30 minutes.
+        </p>
+        <div class="fade-up delay-200 flex flex-wrap justify-center gap-4">
+            <a routerLink="/Menu"
+                class="card-hover inline-flex items-center gap-3 bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl">
+                Voir le Menu
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
             </a>
+            <a href="tel:+33123456789"
+                class="card-hover inline-flex items-center gap-3 bg-[#1e1e1e] hover:bg-[#2a2a2a] text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 border border-red-500/20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                01 23 45 67 89
+            </a>
         </div>
     </div>
 </section>
 
-<!-- CTA Final -->
-<section class="bg-gray-900 py-16">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
-            Envie de sushis ?
-        </h2>
-        <p class="text-gray-400 mb-8">
-            Commandez maintenant et faites-vous livrer en moins de 30 minutes
-        </p>
-        <a routerLink="/Menu"
-            class="inline-block bg-red-500 hover:bg-red-600 text-white px-10 py-4 rounded-full font-medium text-lg transition-colors">
-            Commander maintenant
-        </a>
+<!-- Informations pratiques -->
+<section class="bg-[#1e1e1e] py-20">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="fade-up text-3xl font-black text-white text-center mb-12 uppercase">Nous Trouver</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div
+                class="fade-up delay-100 card-hover bg-[#0f0f0f] border-l-4 border-red-500 rounded-2xl p-6 text-center">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-red-500/15 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="1.5">
+                        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-white mb-2">Adresse</h3>
+                <p class="text-white/60">17 rue Jablinot</p>
+                <p class="text-white/60">77100 Meaux</p>
+            </div>
+
+            <div
+                class="fade-up delay-200 card-hover bg-[#0f0f0f] border-l-4 border-red-500 rounded-2xl p-6 text-center">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-red-500/15 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-white mb-2">Horaires</h3>
+                <p class="text-white/60">Lun - Dim : 11h - 22h</p>
+                <p class="text-white/50 text-sm">Dernière commande à 21h30</p>
+            </div>
+
+            <div
+                class="fade-up delay-300 card-hover bg-[#0f0f0f] border-l-4 border-red-500 rounded-2xl p-6 text-center">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-red-500/15 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                </div>
+                <h3 class="font-bold text-white mb-2">Contact</h3>
+                <p class="text-white/60">01 23 45 67 89</p>
+                <p class="text-white/60 text-sm">contact&#64;sushicrousty.fr</p>
+            </div>
+        </div>
     </div>
 </section>

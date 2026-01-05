@@ -27,34 +27,34 @@ export class Dashboard implements OnInit {
   private userService = inject(UserService);
   private cdr = inject(ChangeDetectorRef);
 
-  // Palette de couleurs orange/ambre pour correspondre à la charte graphique
-  private orangePalette = [
-    'rgba(230, 126, 34, 0.85)',   // Orange principal
-    'rgba(211, 84, 0, 0.85)',     // Orange foncé
-    'rgba(243, 156, 18, 0.85)',   // Jaune-orange
-    'rgba(241, 196, 15, 0.85)',   // Jaune doré
-    'rgba(255, 165, 89, 0.85)',   // Orange clair
-    'rgba(186, 74, 0, 0.85)'      // Orange brun
+  // Palette de couleurs rouge pour correspondre à la charte graphique
+  private redPalette = [
+    'rgba(239, 68, 68, 0.85)',
+    'rgba(220, 38, 38, 0.85)',
+    'rgba(248, 113, 113, 0.85)',
+    'rgba(185, 28, 28, 0.85)',
+    'rgba(254, 202, 202, 0.85)',
+    'rgba(153, 27, 27, 0.85)'
   ];
 
-  private orangeBorders = [
-    'rgba(230, 126, 34, 1)',
-    'rgba(211, 84, 0, 1)',
-    'rgba(243, 156, 18, 1)',
-    'rgba(241, 196, 15, 1)',
-    'rgba(255, 165, 89, 1)',
-    'rgba(186, 74, 0, 1)'
+  private redBorders = [
+    'rgba(239, 68, 68, 1)',
+    'rgba(220, 38, 38, 1)',
+    'rgba(248, 113, 113, 1)',
+    'rgba(185, 28, 28, 1)',
+    'rgba(254, 202, 202, 1)',
+    'rgba(153, 27, 27, 1)'
   ];
 
-  // ========== MENUS LES PLUS COMMANDÉS (Bar Chart) ==========
+
   public menuLabels: string[] = [];
   public menuData: any = {
     labels: [],
     datasets: [{
       label: 'Commandes',
       data: [],
-      backgroundColor: this.orangePalette,
-      borderColor: this.orangeBorders,
+      backgroundColor: this.redPalette,
+      borderColor: this.redBorders,
       borderWidth: 2,
       borderRadius: 8
     }]
@@ -91,7 +91,7 @@ export class Dashboard implements OnInit {
     labels: this.ageLabels,
     datasets: [{
       data: [28, 35, 22, 10, 5],
-      backgroundColor: this.orangePalette,
+      backgroundColor: this.redPalette,
       borderColor: '#1a1a1a',
       borderWidth: 3,
       hoverOffset: 15
@@ -127,11 +127,11 @@ export class Dashboard implements OnInit {
     datasets: [{
       label: 'Commandes',
       data: [0, 0, 0, 0, 0, 0, 0],
-      backgroundColor: 'rgba(230, 126, 34, 0.7)',
-      borderColor: 'rgba(230, 126, 34, 1)',
+      backgroundColor: 'rgba(239, 68, 68, 0.7)',
+      borderColor: 'rgba(239, 68, 68, 1)',
       borderWidth: 2,
       borderRadius: 8,
-      hoverBackgroundColor: 'rgba(230, 126, 34, 0.9)'
+      hoverBackgroundColor: 'rgba(239, 68, 68, 0.9)'
     }]
   };
   public ordersOptions: any = {
@@ -166,7 +166,7 @@ export class Dashboard implements OnInit {
     labels: [],
     datasets: [{
       data: [],
-      backgroundColor: this.orangePalette,
+      backgroundColor: this.redPalette,
       borderColor: '#1a1a1a',
       borderWidth: 3,
       hoverOffset: 10
@@ -198,10 +198,10 @@ export class Dashboard implements OnInit {
 
   // ========== STATS CARDS DATA ==========
   public stats = [
-    { label: 'Commandes Total', value: '0', icon: '📦', trend: '', color: '#e67e22' },
-    { label: 'Articles Vendus', value: '0', icon: '🍣', trend: '', color: '#d35400' },
-    { label: 'Revenu Total', value: '0€', icon: '💰', trend: '', color: '#f39c12' },
-    { label: 'Panier Moyen', value: '0€', icon: '🛒', trend: '', color: '#e67e22' }
+    { label: 'Commandes Total', value: '0', icon: '📦', trend: '', color: '#ef4444' },
+    { label: 'Articles Vendus', value: '0', icon: '🍣', trend: '', color: '#dc2626' },
+    { label: 'Revenu Total', value: '0€', icon: '💰', trend: '', color: '#f87171' },
+    { label: 'Panier Moyen', value: '0€', icon: '🛒', trend: '', color: '#ef4444' }
   ];
 
   ngOnInit(): void {
@@ -248,10 +248,10 @@ export class Dashboard implements OnInit {
 
     // Mettre à jour les stats cards
     this.stats = [
-      { label: 'Commandes Total', value: totalOrders.toString(), icon: '📦', trend: '', color: '#e67e22' },
-      { label: 'Articles Vendus', value: totalItems.toString(), icon: '🍣', trend: '', color: '#d35400' },
-      { label: 'Revenu Total', value: `${totalRevenue.toFixed(2)}€`, icon: '💰', trend: '', color: '#f39c12' },
-      { label: 'Panier Moyen', value: `${avgCart}€`, icon: '🛒', trend: '', color: '#e67e22' }
+      { label: 'Commandes Total', value: totalOrders.toString(), icon: '📦', trend: '', color: '#ef4444' },
+      { label: 'Articles Vendus', value: totalItems.toString(), icon: '🍣', trend: '', color: '#dc2626' },
+      { label: 'Revenu Total', value: `${totalRevenue.toFixed(2)}€`, icon: '💰', trend: '', color: '#f87171' },
+      { label: 'Panier Moyen', value: `${avgCart}€`, icon: '🛒', trend: '', color: '#ef4444' }
     ];
 
     this.cdr.detectChanges();
@@ -310,7 +310,7 @@ export class Dashboard implements OnInit {
           labels: this.ageLabels,
           datasets: [{
             data: hasData ? data : [0, 0, 0, 0, 0],
-            backgroundColor: this.orangePalette,
+            backgroundColor: this.redPalette,
             borderColor: '#1a1a1a',
             borderWidth: 3,
             hoverOffset: 15
