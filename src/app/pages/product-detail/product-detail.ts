@@ -36,7 +36,7 @@ export class ProductDetail implements OnInit {
     ];
 
     ngOnInit(): void {
-        // Écouter les changements de paramètres de route
+
         this.route.paramMap.subscribe(params => {
             const id = Number(params.get('id'));
             this.loadProduct(id);
@@ -48,7 +48,7 @@ export class ProductDetail implements OnInit {
         this.box = null;
         this.suggestions = [];
 
-        // Faire défiler vers le haut de la page
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         this.sushiService.getBoxes().subscribe((boxes) => {
@@ -61,7 +61,7 @@ export class ProductDetail implements OnInit {
                     image: this.sushiImages[index % this.sushiImages.length]
                 };
 
-                // Récupérer les suggestions (4 autres boxes aléatoires)
+
                 const otherBoxes = boxes
                     .filter(b => b.id !== id)
                     .map((b, i) => ({

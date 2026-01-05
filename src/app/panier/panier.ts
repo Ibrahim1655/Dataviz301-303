@@ -25,7 +25,7 @@ export class Panier {
   isLoading = false;// le client est il en train de payer
   isSuccess = false;// la paiement est il validé
 
-  // Extras (sauces et couverts)
+
   extras = {
     sauceSalee: { quantity: 0, price: 0.15, name: 'Sauce Salée' },
     sauceSucree: { quantity: 0, price: 0.15, name: 'Sauce Sucrée' },

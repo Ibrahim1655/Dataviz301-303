@@ -93,17 +93,17 @@ export class Navbar implements OnInit {
   }
 
   onRegister(): void {
-    // Reset messages
+
     this.registerMessage = '';
     this.registerError = '';
 
-    // Validation basique
+
     if (!this.registerEmail || !this.registerPassword) {
       this.registerError = 'Email et mot de passe sont obligatoires.';
       return;
     }
 
-    // Validation du captcha
+
     if (!this.registerCaptchaToken) {
       this.registerError = 'Veuillez valider le captcha.';
       return;
@@ -116,7 +116,7 @@ export class Navbar implements OnInit {
 
     this.isRegistering = true;
 
-    // Création du pseudo à partir du prénom ou email
+
     const pseudo = this.registerPrenom || this.registerEmail.split('@')[0];
 
     const userData = {
@@ -135,7 +135,7 @@ export class Navbar implements OnInit {
         console.log('Inscription réussie', response);
         this.registerMessage = 'Compte créé avec succès ! Vous pouvez vous connecter.';
         this.isRegistering = false;
-        // Réinitialiser le formulaire
+
         this.resetRegisterForm();
         // Passer à la vue login après 2 secondes
         setTimeout(() => {
@@ -172,7 +172,7 @@ export class Navbar implements OnInit {
   currentUser: any = null;
   isLoggedIn: boolean = false;
 
-  // Initialiser l'état de connexion depuis le localStorage
+
   ngOnInit(): void {
     const savedUser = localStorage.getItem('currentUser');
     if (savedUser) {
@@ -208,18 +208,18 @@ export class Navbar implements OnInit {
         let success = false;
 
         if (response.success === true) {
-          // Format: { success: true, user: {...} }
+
           user = response.user;
           success = true;
         } else if (response.id || response.email) {
-          // Format: retourne directement l'utilisateur
+
           user = response;
           success = true;
         } else if (response.error) {
-          // Format: { error: "message" }
+
           this.loginError = response.error;
         } else if (response.message && !response.success) {
-          // Format: { success: false, message: "..." }
+
           this.loginError = response.message;
         }
 

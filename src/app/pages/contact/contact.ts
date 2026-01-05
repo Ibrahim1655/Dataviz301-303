@@ -12,8 +12,7 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 export class Contact {
   contactForm: FormGroup;
 
-  // Clé de site reCAPTCHA v2 (remplacer par votre propre clé en production)
-  // Pour les tests en local, utilisez cette clé de test Google
+
   siteKey: string = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
 
   constructor(private fb: FormBuilder) {

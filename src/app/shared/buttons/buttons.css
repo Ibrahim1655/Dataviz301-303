@@ -1,8 +1,7 @@
-/* Bouton beige avec marge interne importante sur les côtés */
 .beige-button {
-  background-color: #D4A574; /* Couleur beige */
+  background-color: #D4A574;
   color: white;
-  padding: 12px 48px; /* Marge interne importante sur les côtés (48px) */
+  padding: 12px 48px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -11,5 +10,6 @@
 }
 
 .beige-button:hover {
-  background-color: #C49564; /* Couleur beige plus foncée au survol */
+  background-color: #C49564;
+  /* Couleur beige plus foncée au survol */
 }

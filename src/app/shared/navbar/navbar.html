@@ -56,10 +56,10 @@
 
     </div>
 
-    <!-- Titre centré -->
+
     <h2 class="text-xl md:text-2xl md:mr-70" [ngClass]="titleClasses" routerLink="">Sushi Crousty</h2>
 
-    <!-- Section droite avec icône utilisateur -->
+
     <div class="right-navbar relative">
         <ul class="flex flex-row gap-x-4 text-red-500 items-center">
             <li class="relative">
@@ -109,7 +109,7 @@
     </div>
 </div>
 
-<!-- Menu Mobile Overlay -->
+
 <div *ngIf="isMobileMenuOpen"
     class="fixed inset-0 bg-black/95 z-40 md:hidden flex flex-col items-center justify-center backdrop-blur-sm"
     (click)="closeMobileMenu()">
@@ -148,7 +148,7 @@
     class="fixed inset-0 bg-black/90 backdrop-blur-sm z-100 flex items-center justify-center"
     (click)="toggleUserPopup()">
 
-    <!-- Modal Content - Style Menu -->
+
     <div class="bg-[#1a1a1a] rounded-2xl shadow-2xl p-8 w-[90%] max-w-[420px] relative border border-white/5"
         (click)="$event.stopPropagation()">
 
@@ -178,7 +178,7 @@
             </div>
         </div>
 
-        <!-- Login View -->
+
         <div *ngIf="popupView === 'login'" class="flex flex-col gap-4">
             <h3 class="font-['Great_Vibes'] text-3xl text-white text-center">Connexion</h3>
 
@@ -247,11 +247,11 @@
             </p>
         </div>
 
-        <!-- Register View -->
+
         <div *ngIf="popupView === 'register'" class="flex flex-col gap-3">
             <h3 class="font-['Great_Vibes'] text-3xl text-white text-center">Créer un compte</h3>
 
-            <!-- Messages de statut -->
+
             <div *ngIf="registerMessage"
                 class="p-3 bg-green-900/30 border border-green-500/50 rounded-xl text-green-400 text-sm text-center">
                 {{ registerMessage }}
@@ -261,7 +261,7 @@
                 {{ registerError }}
             </div>
 
-            <!-- Nom et Prénom côte à côte -->
+
             <div class="flex gap-3">
                 <input type="text" placeholder="Nom" [(ngModel)]="registerNom"
                     class="flex-1 min-w-0 bg-[#2a2a2a] border border-white/10 text-white placeholder-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#e74c3c]/50 transition-all">
@@ -269,7 +269,7 @@
                     class="flex-1 min-w-0 bg-[#2a2a2a] border border-white/10 text-white placeholder-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#e74c3c]/50 transition-all">
             </div>
 
-            <!-- Email avec icône -->
+
             <div class="relative">
                 <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
                     width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -281,7 +281,7 @@
                     class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full">
             </div>
 
-            <!-- Téléphone avec drapeau -->
+
             <div class="flex items-center bg-gray-800/80 rounded-xl overflow-hidden">
                 <div class="flex items-center gap-2 px-4 py-3 border-r border-gray-700">
                     <span class="text-lg">🇫🇷</span>
@@ -295,7 +295,7 @@
                     class="flex-1 bg-transparent border-none text-white placeholder-gray-500 px-4 py-3 focus:outline-none">
             </div>
 
-            <!-- Date de naissance -->
+
             <div class="relative">
                 <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
                     width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -309,7 +309,7 @@
                     class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full [color-scheme:dark]">
             </div>
 
-            <!-- Mot de passe avec icône oeil -->
+
             <div class="relative">
                 <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
                     width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -339,7 +339,7 @@
                 </button>
             </div>
 
-            <!-- Confirmer mot de passe -->
+
             <div class="relative">
                 <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" xmlns="http://www.w3.org/2000/svg"
                     width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

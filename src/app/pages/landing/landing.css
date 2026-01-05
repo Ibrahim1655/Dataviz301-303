@@ -8,9 +8,7 @@
     min-height: 100vh;
 }
 
-/* ========================
-   Section: L'Harmonie des Saveurs
-   ======================== */
+
 .section-harmonie {
     background-color: #1a1a1a;
     padding: 4rem 2rem;
@@ -85,9 +83,7 @@
     border-radius: 8px;
 }
 
-/* ========================
-   Section: Fraîcheur Absolue
-   ======================== */
+
 .section-fraicheur {
     position: relative;
     display: flex;
@@ -96,7 +92,7 @@
     overflow: hidden;
 }
 
-/* Image - côté gauche avec dégradé */
+
 .fraicheur-image {
     position: absolute;
     left: 0;
@@ -126,7 +122,7 @@
     pointer-events: none;
 }
 
-/* Contenu texte - positionné à droite sur le fond noir */
+
 .fraicheur-content {
     position: absolute;
     right: 100px;
@@ -162,7 +158,7 @@
     text-align: center;
 }
 
-/* Texte vertical - bord droit */
+
 .fraicheur-vertical {
     position: absolute;
     right: 15px;
@@ -182,9 +178,7 @@
     white-space: nowrap;
 }
 
-/* ========================
-   Section: Réservation
-   ======================== */
+
 .section-reservation {
     position: relative;
     background-color: #0a0a0a;
@@ -243,9 +237,7 @@
     height: 100%;
 }
 
-/* ========================
-   Responsive Design
-   ======================== */
+
 @media (max-width: 968px) {
     .section-content {
         grid-template-columns: 1fr;

@@ -32,7 +32,7 @@ export class PanierService {
     });
   }
 
- 
+
 
   // Ajoute un article OU augmente sa quantité s'il existe déjà
   ajouter(box: Box) {
@@ -41,25 +41,24 @@ export class PanierService {
       const existe = listeActuelle.find((b) => b.id === box.id);
 
       if (existe) {
-        // CAS A : Il existe déjà alors on augmente la quantité de 1
+
         return listeActuelle.map((b) =>
-          b.id === box.id 
-            ? { ...b, quantity: (b.quantity || 1) + 1 } 
+          b.id === box.id
+            ? { ...b, quantity: (b.quantity || 1) + 1 }
             : b
         );
       } else {
-        // CAS B : Il n'existe pas alors on l'ajoute avec quantité = 1
-        // On utilise '...box' pour copier toutes les propriétés de la box
+
         return [...listeActuelle, { ...box, quantity: 1 }];
       }
     });
   }
 
-  // Baisse la quantité.SI sa atteint 0 on supprime
+
   decrementer(box: Box) {
     this.articles.update((liste) => {
       const item = liste.find((b) => b.id === box.id);
-      
+
       // Si la quantité est à 1 (ou moins) on le retire du panier
       if (!item || (item.quantity || 1) <= 1) {
         return liste.filter((b) => b.id !== box.id);
@@ -67,8 +66,8 @@ export class PanierService {
 
       // Sinon on baisse la quantité de 1 et on retourne la liste modifiée
       return liste.map((b) =>
-        b.id === box.id 
-          ? { ...b, quantity: (b.quantity || 1) - 1 } 
+        b.id === box.id
+          ? { ...b, quantity: (b.quantity || 1) - 1 }
           : b
       );
     });
@@ -79,8 +78,8 @@ export class PanierService {
     this.articles.update((liste) =>
       liste.map((b) =>
         // On trouve l'article et on augmente sa quantité de 1 et on retourne la liste modifiée
-        b.id === box.id 
-          ? { ...b, quantity: (b.quantity || 1) + 1 } 
+        b.id === box.id
+          ? { ...b, quantity: (b.quantity || 1) + 1 }
           : b
       )
     );

@@ -10,7 +10,7 @@ export class UserService {
     // L'attribut contenant l'API
     private apiUrl: string = "http://localhost/api_user/api.php";
 
-    // On a accès au service en l'injectant dans le constructeur, dans l'attribut http
+
     constructor(private http: HttpClient) { }
 
     // Récupérer tous les utilisateurs
@@ -33,7 +33,7 @@ export class UserService {
         return this.http.put<User>(this.apiUrl, user);
     }
 
-    // Supprimer un utilisateur
+
     deleteUser(id: number): Observable<any> {
         return this.http.delete(`${this.apiUrl}?id=${id}`);
     }

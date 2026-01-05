@@ -1,14 +1,13 @@
-/* Import Google Font for elegant title */
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-/* Container principal */
+
 .product-detail-container {
     background-color: #1a1a1a;
     min-height: 100vh;
     padding: 2rem;
 }
 
-/* Loading state */
+
 .loading {
     display: flex;
     flex-direction: column;
@@ -63,7 +62,7 @@
     margin: 0 auto;
 }
 
-/* Section image */
+
 .product-image-section {
     display: flex;
     justify-content: center;
@@ -120,7 +119,7 @@
     color: #e74c3c;
 }
 
-/* Prix */
+
 .product-price-container {
     margin-bottom: 2rem;
 }
@@ -302,7 +301,7 @@
     color: #e74c3c;
 }
 
-/* Bouton Voir détails pour suggestions */
+
 .view-details-button {
     display: block;
     text-align: center;
