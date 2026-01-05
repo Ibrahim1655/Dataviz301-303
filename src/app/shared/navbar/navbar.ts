@@ -5,11 +5,12 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../Services/user.service';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 
 @Component({
   selector: 'app-navbar',
-  imports: [LucideAngularModule, RouterLink, RouterLinkActive, CommonModule, FormsModule],
+  imports: [LucideAngularModule, RouterLink, RouterLinkActive, CommonModule, FormsModule, RecaptchaModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
@@ -44,6 +45,10 @@ export class Navbar implements OnInit {
   registerTelephone: string = '';
   registerPassword: string = '';
   registerConfirmPassword: string = '';
+  registerCaptchaToken: string = '';
+
+  // Clé de site reCAPTCHA (clé de test Google pour le développement)
+  recaptchaSiteKey: string = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
 
   // Messages de statut
   registerMessage: string = '';
@@ -82,6 +87,11 @@ export class Navbar implements OnInit {
     this.showConfirmPassword = !this.showConfirmPassword;
   }
 
+  // Callback quand le captcha est résolu
+  onCaptchaResolved(token: string | null): void {
+    this.registerCaptchaToken = token || '';
+  }
+
   onRegister(): void {
     // Reset messages
     this.registerMessage = '';
@@ -90,6 +100,12 @@ export class Navbar implements OnInit {
     // Validation basique
     if (!this.registerEmail || !this.registerPassword) {
       this.registerError = 'Email et mot de passe sont obligatoires.';
+      return;
+    }
+
+    // Validation du captcha
+    if (!this.registerCaptchaToken) {
+      this.registerError = 'Veuillez valider le captcha.';
       return;
     }
 

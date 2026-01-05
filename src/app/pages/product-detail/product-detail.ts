@@ -48,6 +48,9 @@ export class ProductDetail implements OnInit {
         this.box = null;
         this.suggestions = [];
 
+        // Faire défiler vers le haut de la page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
         this.sushiService.getBoxes().subscribe((boxes) => {
             const foundBox = boxes.find(b => b.id === id);
             if (foundBox) {

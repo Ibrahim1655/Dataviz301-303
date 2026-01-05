@@ -1,5 +1,5 @@
 <div class="bg-black flex justify-between items-center p-4 md:p-6 sticky top-0 z-50">
-    <!-- Bouton Burger (visible sur mobile uniquement) -->
+
     <button (click)="toggleMobileMenu()" class="md:hidden text-white p-2 hover:text-red-500 transition-colors z-60">
         <svg *ngIf="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -14,7 +14,7 @@
         </svg>
     </button>
 
-    <!-- Menu Desktop (caché sur mobile) -->
+
     <div class="left-navbar ml-0 md:ml-8 hidden md:block">
         <ul class="flex flex-row gap-x-10">
             <li>
@@ -55,10 +55,10 @@
         </ul>
 
     </div>
-    
+
     <!-- Titre centré -->
     <h2 class="text-xl md:text-2xl md:mr-70" [ngClass]="titleClasses" routerLink="">Sushi Crousty</h2>
-    
+
     <!-- Section droite avec icône utilisateur -->
     <div class="right-navbar relative">
         <ul class="flex flex-row gap-x-4 text-red-500 items-center">
@@ -66,37 +66,38 @@
                 <img [src]="iconUserUrl" alt="icone utilisateur"
                     class="cursor-pointer hover:opacity-80 transition-opacity" (click)="toggleUserPopup()">
 
-                <!-- Menu Dropdown (petit popup) -->
+                <!-- Menu Dropdown (petit popup) - Style Menu -->
                 <div *ngIf="showUserPopup && popupView === 'menu'"
-                    class="absolute right-0 top-10 bg-linear-to-br from-gray-900 to-black border border-red-500/30 rounded-xl shadow-2xl p-5 min-w-[280px] z-50 backdrop-blur-sm">
-                    <div class="flex flex-col gap-3">
-                        <h3 class="text-white text-center font-semibold text-lg mb-2 border-b border-red-500/20 pb-2">
+                    class="absolute right-0 top-10 bg-[#1a1a1a] rounded-2xl shadow-2xl p-6 min-w-[300px] z-50 border border-white/5">
+                    <div class="flex flex-col gap-4">
+                        <h3 class="font-['Great_Vibes'] text-3xl text-white text-center pb-3 border-b border-white/10">
                             Mon Compte</h3>
 
                         <!-- Menu quand NON connecté -->
                         <ng-container *ngIf="!isLoggedIn">
                             <button (click)="showLogin()"
-                                class="bg-linear-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-red-500/25 hover:scale-105">
+                                class="w-full py-3 px-4 bg-gradient-to-r from-[#e74c3c] to-[#c0392b] text-white font-semibold rounded-xl transition-all duration-300 hover:from-[#ff5f4f] hover:to-[#e74c3c] hover:-translate-y-0.5">
                                 Se connecter
                             </button>
                             <button (click)="showRegister()"
-                                class="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 hover:scale-105">
+                                class="w-full py-3 px-4 bg-transparent border-2 border-[#e74c3c] text-[#e74c3c] font-semibold rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#e74c3c] hover:to-[#c0392b] hover:text-white hover:border-transparent hover:-translate-y-0.5">
                                 S'inscrire
                             </button>
                         </ng-container>
 
                         <!-- Menu quand CONNECTÉ -->
                         <ng-container *ngIf="isLoggedIn">
-                            <p class="text-gray-400 text-sm text-center mb-1">
-                                Connecté en tant que <span class="text-white font-medium">{{ currentUser?.pseudo ||
-                                    currentUser?.email }}</span>
-                            </p>
+                            <div class="bg-[#2a2a2a] rounded-xl p-4 text-center">
+                                <p class="text-gray-400 text-sm mb-1">Connecté en tant que</p>
+                                <p class="text-white font-semibold text-lg">{{ currentUser?.pseudo || currentUser?.email
+                                    }}</p>
+                            </div>
                             <a routerLink="/Profil" (click)="toggleUserPopup()"
-                                class="bg-linear-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-red-500/25 hover:scale-105 text-center">
+                                class="w-full py-3 px-4 bg-gradient-to-r from-[#e74c3c] to-[#c0392b] text-white font-semibold rounded-xl transition-all duration-300 hover:from-[#ff5f4f] hover:to-[#e74c3c] hover:-translate-y-0.5 text-center block">
                                 Mon Profil
                             </a>
                             <button (click)="logout(); toggleUserPopup()"
-                                class="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 hover:scale-105">
+                                class="w-full py-3 px-4 bg-transparent border-2 border-[#e74c3c] text-[#e74c3c] font-semibold rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#e74c3c] hover:to-[#c0392b] hover:text-white hover:border-transparent hover:-translate-y-0.5">
                                 Déconnexion
                             </button>
                         </ng-container>
@@ -109,7 +110,7 @@
 </div>
 
 <!-- Menu Mobile Overlay -->
-<div *ngIf="isMobileMenuOpen" 
+<div *ngIf="isMobileMenuOpen"
     class="fixed inset-0 bg-black/95 z-40 md:hidden flex flex-col items-center justify-center backdrop-blur-sm"
     (click)="closeMobileMenu()">
     <nav class="flex flex-col items-center gap-8" (click)="$event.stopPropagation()">
@@ -133,7 +134,7 @@
             class="text-white text-2xl font-medium hover:text-red-400 transition-colors">
             DASHBOARD
         </a>
-        
+
         <!-- Drapeau dans le menu mobile -->
         <div class="mt-4 flex items-center gap-2">
             <img src="/drapeau_france.jpg" class="w-6 h-6 rounded-sm" alt="drapeau francais">
@@ -144,16 +145,16 @@
 
 <!-- Modal Overlay pour Login/Register -->
 <div *ngIf="showUserPopup && popupView !== 'menu'"
-    class="fixed inset-0 bg-black/80 backdrop-blur-sm z-100 flex items-center justify-center"
+    class="fixed inset-0 bg-black/90 backdrop-blur-sm z-100 flex items-center justify-center"
     (click)="toggleUserPopup()">
 
-    <!-- Modal Content -->
-    <div class="bg-gradient-to-b from-gray-900 via-gray-900 to-black rounded-3xl shadow-2xl p-6 w-[90%] max-w-[420px] relative"
+    <!-- Modal Content - Style Menu -->
+    <div class="bg-[#1a1a1a] rounded-2xl shadow-2xl p-8 w-[90%] max-w-[420px] relative border border-white/5"
         (click)="$event.stopPropagation()">
 
         <!-- Bouton fermer -->
         <button (click)="toggleUserPopup()"
-            class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
+            class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-gray-500 hover:text-white hover:bg-[#2a2a2a] rounded-lg transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -161,17 +162,17 @@
             </svg>
         </button>
 
-        <!-- Tabs Sign up / Sign in -->
+        <!-- Tabs Sign up / Sign in - Style Menu -->
         <div class="flex justify-center mb-6">
-            <div class="bg-gray-800 rounded-full p-1 flex gap-1">
+            <div class="bg-[#2a2a2a] rounded-xl p-1 flex gap-1">
                 <button (click)="showRegister()"
-                    [class]="popupView === 'register' ? 'bg-gray-700 text-white' : 'text-gray-400 hover:text-white'"
-                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    [class]="popupView === 'register' ? 'bg-gradient-to-r from-[#e74c3c] to-[#c0392b] text-white' : 'text-gray-400 hover:text-white'"
+                    class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all">
                     S'inscrire
                 </button>
                 <button (click)="showLogin()"
-                    [class]="popupView === 'login' ? 'bg-gray-700 text-white' : 'text-gray-400 hover:text-white'"
-                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    [class]="popupView === 'login' ? 'bg-gradient-to-r from-[#e74c3c] to-[#c0392b] text-white' : 'text-gray-400 hover:text-white'"
+                    class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all">
                     Connexion
                 </button>
             </div>
@@ -179,15 +180,15 @@
 
         <!-- Login View -->
         <div *ngIf="popupView === 'login'" class="flex flex-col gap-4">
-            <h3 class="text-white font-bold text-xl mb-2">Connexion</h3>
+            <h3 class="font-['Great_Vibes'] text-3xl text-white text-center">Connexion</h3>
 
             <!-- Messages de statut -->
             <div *ngIf="loginMessage"
-                class="p-3 bg-green-900/50 border border-green-500 rounded-lg text-green-300 text-sm text-center">
+                class="p-3 bg-green-900/30 border border-green-500/50 rounded-xl text-green-400 text-sm text-center">
                 {{ loginMessage }}
             </div>
             <div *ngIf="loginError"
-                class="p-3 bg-red-900/50 border border-red-500 rounded-lg text-red-300 text-sm text-center">
+                class="p-3 bg-red-900/30 border border-[#e74c3c]/50 rounded-xl text-[#e74c3c] text-sm text-center">
                 {{ loginError }}
             </div>
 
@@ -200,7 +201,7 @@
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                 </svg>
                 <input type="email" placeholder="Entrez votre email" [(ngModel)]="loginEmail"
-                    class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full">
+                    class="bg-[#2a2a2a] border border-white/10 text-white placeholder-gray-500 rounded-xl pl-12 pr-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-[#e74c3c]/50 focus:border-[#e74c3c]/50 transition-all w-full">
             </div>
 
             <!-- Mot de passe avec icône oeil -->
@@ -213,9 +214,9 @@
                 </svg>
                 <input [type]="showPassword ? 'text' : 'password'" placeholder="Mot de passe"
                     [(ngModel)]="loginPassword"
-                    class="bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl pl-12 pr-12 py-3.5 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all w-full">
+                    class="bg-[#2a2a2a] border border-white/10 text-white placeholder-gray-500 rounded-xl pl-12 pr-12 py-3.5 focus:outline-none focus:ring-2 focus:ring-[#e74c3c]/50 focus:border-[#e74c3c]/50 transition-all w-full">
                 <button type="button" (click)="togglePasswordVisibility()"
-                    class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors">
+                    class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#e74c3c] transition-colors">
                     <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -234,39 +235,38 @@
             </div>
 
             <button (click)="onLogin()" [disabled]="isLoggingIn"
-                class="bg-gradient-to-r from-gray-200 to-white text-gray-900 font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 hover:opacity-90 hover:scale-[1.02] mt-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                class="w-full py-3.5 px-6 bg-gradient-to-r from-[#e74c3c] to-[#c0392b] text-white font-semibold rounded-xl transition-all duration-300 hover:from-[#ff5f4f] hover:to-[#e74c3c] hover:-translate-y-0.5 mt-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
                 <span *ngIf="!isLoggingIn">Se connecter</span>
                 <span *ngIf="isLoggingIn">Connexion en cours...</span>
             </button>
 
-
-
             <p class="text-gray-500 text-xs text-center mt-2">
                 En vous connectant, vous acceptez nos <span
-                    class="text-gray-400 hover:text-white cursor-pointer">Conditions d'utilisation</span>
+                    class="text-[#e74c3c] hover:text-white cursor-pointer transition-colors">Conditions
+                    d'utilisation</span>
             </p>
         </div>
 
         <!-- Register View -->
         <div *ngIf="popupView === 'register'" class="flex flex-col gap-3">
-            <h3 class="text-white font-bold text-xl mb-2">Créer un compte</h3>
+            <h3 class="font-['Great_Vibes'] text-3xl text-white text-center">Créer un compte</h3>
 
             <!-- Messages de statut -->
             <div *ngIf="registerMessage"
-                class="p-3 bg-green-900/50 border border-green-500 rounded-lg text-green-300 text-sm text-center">
+                class="p-3 bg-green-900/30 border border-green-500/50 rounded-xl text-green-400 text-sm text-center">
                 {{ registerMessage }}
             </div>
             <div *ngIf="registerError"
-                class="p-3 bg-red-900/50 border border-red-500 rounded-lg text-red-300 text-sm text-center">
+                class="p-3 bg-red-900/30 border border-[#e74c3c]/50 rounded-xl text-[#e74c3c] text-sm text-center">
                 {{ registerError }}
             </div>
 
             <!-- Nom et Prénom côte à côte -->
             <div class="flex gap-3">
                 <input type="text" placeholder="Nom" [(ngModel)]="registerNom"
-                    class="flex-1 min-w-0 bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all">
+                    class="flex-1 min-w-0 bg-[#2a2a2a] border border-white/10 text-white placeholder-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#e74c3c]/50 transition-all">
                 <input type="text" placeholder="Prénom" [(ngModel)]="registerPrenom"
-                    class="flex-1 min-w-0 bg-gray-800/80 border-none text-white placeholder-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-600 transition-all">
+                    class="flex-1 min-w-0 bg-[#2a2a2a] border border-white/10 text-white placeholder-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#e74c3c]/50 transition-all">
             </div>
 
             <!-- Email avec icône -->
@@ -369,8 +369,15 @@
                 </button>
             </div>
 
+            <!-- Google reCAPTCHA -->
+            <div class="flex justify-center my-3">
+                <re-captcha [siteKey]="recaptchaSiteKey" (resolved)="onCaptchaResolved($event)" theme="dark"
+                    size="compact">
+                </re-captcha>
+            </div>
+
             <button (click)="onRegister()" [disabled]="isRegistering"
-                class="bg-gradient-to-r from-gray-200 to-white text-gray-900 font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 hover:opacity-90 hover:scale-[1.02] mt-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                class="w-full py-3.5 px-6 bg-gradient-to-r from-[#e74c3c] to-[#c0392b] text-white font-semibold rounded-xl transition-all duration-300 hover:from-[#ff5f4f] hover:to-[#e74c3c] hover:-translate-y-0.5 mt-2 disabled:opacity-50 disabled:cursor-not-allowed">
                 <span *ngIf="!isRegistering">Créer un compte</span>
                 <span *ngIf="isRegistering">Création en cours...</span>
             </button>
