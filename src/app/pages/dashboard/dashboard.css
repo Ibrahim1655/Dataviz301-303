@@ -1,7 +1,7 @@
 .dashboard-container {
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  background: #0f0f0f;
 }
 
 /* ========== HEADER ========== */
@@ -16,28 +16,6 @@
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  font-family: 'Playfair Display', serif;
-}
-
-.dashboard-header h1::before {
-  content: '';
-  display: inline-block;
-  width: 50px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #e67e22, transparent);
-  margin-right: 1rem;
-  vertical-align: middle;
-}
-
-.dashboard-header h1::after {
-  content: '';
-  display: inline-block;
-  width: 50px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #e67e22, transparent);
-  margin-left: 1rem;
-  vertical-align: middle;
 }
 
 .dashboard-header p {
@@ -55,15 +33,13 @@
 }
 
 .stat-card {
-  background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(20, 20, 20, 0.95));
-  backdrop-filter: blur(20px);
+  background: #1e1e1e;
   border-radius: 16px;
   padding: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
   border: 1px solid rgba(230, 126, 34, 0.2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
@@ -79,26 +55,10 @@
   border-radius: 16px 0 0 16px;
 }
 
-.stat-card::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(230, 126, 34, 0.1) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
 .stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(230, 126, 34, 0.15);
-  border-color: rgba(230, 126, 34, 0.4);
-}
-
-.stat-card:hover::after {
-  opacity: 1;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .stat-icon {
@@ -108,9 +68,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(230, 126, 34, 0.2), rgba(211, 84, 0, 0.1));
+  background: rgba(230, 126, 34, 0.15);
   border-radius: 12px;
-  border: 1px solid rgba(230, 126, 34, 0.3);
 }
 
 .stat-content {
@@ -123,7 +82,6 @@
   font-size: 1.8rem;
   font-weight: 700;
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
 }
 
 .stat-label {
@@ -151,15 +109,12 @@
 }
 
 .chart-card {
-  background: linear-gradient(145deg, rgba(30, 30, 30, 0.95), rgba(20, 20, 20, 0.98));
-  backdrop-filter: blur(20px);
+  background: #1e1e1e;
   border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   height: 380px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -170,13 +125,12 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #e67e22, #d35400, #e67e22);
+  background: linear-gradient(90deg, #e67e22, #d35400);
 }
 
 .chart-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-  border-color: rgba(230, 126, 34, 0.2);
+  transform: translateY(-3px);
+  transition: transform 0.2s ease;
 }
 
 .chart-card canvas {
@@ -198,11 +152,6 @@
 
   .dashboard-header h1 {
     font-size: 1.8rem;
-  }
-
-  .dashboard-header h1::before,
-  .dashboard-header h1::after {
-    display: none;
   }
 
   .stats-grid {

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, inject, OnInit, ViewChild, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Chart, registerables } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
@@ -14,7 +14,8 @@ Chart.register(...registerables);
   standalone: true,
   imports: [CommonModule, BaseChartDirective],
   templateUrl: './dashboard.html',
-  styleUrls: ['./dashboard.css']
+  styleUrls: ['./dashboard.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Dashboard implements OnInit {
   @ViewChild('menuChart') menuChart?: BaseChartDirective;
@@ -58,9 +59,10 @@ export class Dashboard implements OnInit {
       borderRadius: 8
     }]
   };
-  public menuOptions = {
+  public menuOptions: any = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: { duration: 0 },
     plugins: {
       legend: { display: false },
       title: {
@@ -85,7 +87,7 @@ export class Dashboard implements OnInit {
 
   // ========== TRANCHES D'ÂGE (Pie Chart) ==========
   public ageLabels: string[] = ['18-25 ans', '26-35 ans', '36-45 ans', '46-55 ans', '55+ ans'];
-  public ageData = {
+  public ageData: any = {
     labels: this.ageLabels,
     datasets: [{
       data: [28, 35, 22, 10, 5],
@@ -95,9 +97,10 @@ export class Dashboard implements OnInit {
       hoverOffset: 15
     }]
   };
-  public ageOptions = {
+  public ageOptions: any = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: { duration: 0 },
     plugins: {
       legend: {
         position: 'right' as const,
@@ -131,9 +134,10 @@ export class Dashboard implements OnInit {
       hoverBackgroundColor: 'rgba(230, 126, 34, 0.9)'
     }]
   };
-  public ordersOptions = {
+  public ordersOptions: any = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: { duration: 0 },
     plugins: {
       legend: { display: false },
       title: {
@@ -168,9 +172,10 @@ export class Dashboard implements OnInit {
       hoverOffset: 10
     }]
   };
-  public categoryOptions = {
+  public categoryOptions: any = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: { duration: 0 },
     cutout: '55%',
     plugins: {
       legend: {
@@ -313,8 +318,8 @@ export class Dashboard implements OnInit {
         };
 
         // Forcer la mise à jour du graphique
-        if (this.ageChart) {
-          this.ageChart.update();
+        if (this.ageChart && this.ageChart.chart) {
+          this.ageChart.chart.update();
         }
         this.cdr.detectChanges();
       },
