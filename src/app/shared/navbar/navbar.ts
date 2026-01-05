@@ -21,6 +21,17 @@ export class Navbar implements OnInit {
   showUserPopup: boolean = false;
   popupView: 'menu' | 'login' | 'register' = 'menu';
 
+  // Menu mobile burger
+  isMobileMenuOpen: boolean = false;
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu(): void {
+    this.isMobileMenuOpen = false;
+  }
+
   // Propriétés pour la visibilité des mots de passe
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
@@ -196,9 +207,11 @@ export class Navbar implements OnInit {
         }
 
         if (success && user) {
+          // D'abord supprimer l'ancien utilisateur pour éviter les conflits
+          localStorage.removeItem('currentUser');
           this.currentUser = user;
           this.isLoggedIn = true;
-          // Sauvegarder dans le localStorage
+          // Sauvegarder le nouveau utilisateur dans le localStorage
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.loginMessage = 'Connexion réussie ! Bienvenue ' + (user?.pseudo || user?.email);
           // Fermer le popup après 1.5 secondes

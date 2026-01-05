@@ -17,8 +17,9 @@ export class Compte implements OnInit {
   successMessage: string = '';
   errorMessage: string = '';
 
-  // Pour la démo, on utilise l'ID 1. En production, récupérer depuis un service d'authentification
-  private userId: number = 1;
+  // Récupérer l'ID de l'utilisateur connecté depuis le localStorage
+  private userId: number = 0;
+  private currentUser: any = null;
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.profileForm = this.fb.group({
@@ -32,10 +33,23 @@ export class Compte implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadProfile();
+    // Récupérer l'utilisateur connecté depuis le localStorage
+    const savedUser = localStorage.getItem('currentUser');
+    if (savedUser) {
+      this.currentUser = JSON.parse(savedUser);
+      this.userId = this.currentUser.id;
+      this.loadProfile();
+    } else {
+      this.errorMessage = 'Vous devez être connecté pour voir votre profil.';
+    }
   }
 
   loadProfile(): void {
+    if (!this.userId) {
+      this.errorMessage = 'Utilisateur non trouvé.';
+      return;
+    }
+
     this.isLoading = true;
     this.userService.getUserById(this.userId).subscribe({
       next: (user: User) => {
