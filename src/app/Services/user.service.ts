@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
     // L'attribut contenant l'API
-    private apiUrl: string = "http://localhost/api_user/api.php";
+    private apiUrl: string = "http://localhost/api_user/api_user/api.php";
 
 
     constructor(private http: HttpClient) { }

@@ -56,8 +56,6 @@ export class Panier {
 
 
 
-
-
   supprimerArticle(box: Box) {
     this.panierService.retirer(box);
   }

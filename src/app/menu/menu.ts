@@ -55,9 +55,6 @@ export class Menu implements OnInit {
         image: this.sushiImages[index % this.sushiImages.length]
       }));
     });
-
-
-
   }
 
   ajouter(box: Box) {
